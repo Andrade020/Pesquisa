@@ -1,0 +1,3793 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila de Macroeconomia II - Modelos de Crescimento Econômico</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2c5282;
+            --accent-color: #3182ce;
+            --light-bg: #f7fafc;
+            --border-color: #e2e8f0;
+            --text-color: #2d3748;
+            --gold-color: #d69e2e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 60px;
+        }
+        
+        /* Capa */
+        .cover {
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 60px;
+            border-bottom: 3px double var(--primary-color);
+            page-break-after: always;
+        }
+        
+        .cover h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+        
+        .cover h2 {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            font-weight: normal;
+            margin-bottom: 60px;
+        }
+        
+        .cover .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Sumário */
+        .toc {
+            margin-bottom: 60px;
+            page-break-after: always;
+        }
+        
+        .toc h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .toc ul {
+            list-style: none;
+        }
+        
+        .toc > ul > li {
+            margin-bottom: 15px;
+        }
+        
+        .toc a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted var(--border-color);
+            padding-bottom: 5px;
+        }
+        
+        .toc a:hover {
+            color: var(--accent-color);
+        }
+        
+        .toc .section-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        /* Capítulos */
+        .chapter {
+            margin-bottom: 50px;
+            page-break-before: always;
+        }
+        
+        .chapter:first-of-type {
+            page-break-before: avoid;
+        }
+        
+        h1.chapter-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .chapter-number {
+            font-size: 3em;
+            margin-right: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            color: var(--secondary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+        
+        h3 {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        h4 {
+            font-size: 1.1em;
+            color: #4a5568;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Equações */
+        .equation {
+            background: var(--light-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+            overflow-x: auto;
+        }
+        
+        .equation-box {
+            background: linear-gradient(135deg, #e6f2ff 0%, #f0f7ff 100%);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+            text-align: center;
+        }
+        
+        .equation-gold {
+            background: linear-gradient(135deg, #fef9e7 0%, #fdf6e3 100%);
+            border-color: var(--gold-color);
+            border-left-color: var(--gold-color);
+        }
+        
+        /* Listas */
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Definições e Teoremas */
+        .definition, .theorem, .proposition, .result, .interpretation {
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+        
+        .definition {
+            background: #f0fff4;
+            border-left: 4px solid #38a169;
+        }
+        
+        .theorem {
+            background: #faf5ff;
+            border-left: 4px solid #805ad5;
+        }
+        
+        .proposition {
+            background: #fff5f5;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .result {
+            background: #fffaf0;
+            border-left: 4px solid #dd6b20;
+        }
+        
+        .interpretation {
+            background: #e6fffa;
+            border-left: 4px solid #319795;
+        }
+        
+        .definition-title, .theorem-title, .proposition-title, .result-title, .interpretation-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .definition-title { color: #276749; }
+        .theorem-title { color: #553c9a; }
+        .proposition-title { color: #c53030; }
+        .result-title { color: #c05621; }
+        .interpretation-title { color: #285e61; }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95em;
+        }
+        
+        th {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        tr:hover {
+            background: #edf2f7;
+        }
+        
+        /* Caixas de destaque */
+        .highlight-box {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .warning-box {
+            background: #fefcbf;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .important-box {
+            background: #fed7d7;
+            border: 1px solid #fc8181;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        /* Seção de Fórmulas-Chave */
+        .formula-summary {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .formula-summary h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        /* Estratégias de Resolução */
+        .strategy-box {
+            background: #f0fff4;
+            border: 2px solid #68d391;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .strategy-box h3 {
+            color: #276749;
+            margin-top: 0;
+        }
+        
+        .strategy-box ol {
+            margin-left: 20px;
+        }
+        
+        /* Exercícios */
+        .exercise {
+            margin: 30px 0;
+        }
+        
+        .exercise h2 {
+            color: var(--primary-color);
+            border-left: 4px solid var(--gold-color);
+            font-size: 1.3em;
+        }
+        
+        .exercise p {
+            margin: 10px 0;
+        }
+        
+        /* Soluções */
+        .solution {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        
+        .solution h3 {
+            color: #2c5282;
+            border-bottom: 2px solid #3182ce;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .solution h4 {
+            color: #2d3748;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-style: normal;
+            font-weight: bold;
+        }
+        
+        /* Rodapé */
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: #718096;
+            font-size: 0.9em;
+        }
+        
+        /* Impressão */
+        @media print {
+            body {
+                padding: 20px;
+            }
+            
+            .chapter {
+                page-break-before: always;
+            }
+            
+            .equation-box, .definition, .theorem, .proposition {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            .cover h1 {
+                font-size: 1.8em;
+            }
+            
+            .chapter-number {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="cover">
+    <h1>APOSTILA DE MACROECONOMIA II</h1>
+    <h2>Modelos de Crescimento Econômico</h2>
+    <p class="subtitle">
+        Teoria e Aplicações dos Modelos de Solow, Ramsey-Cass-Koopmans<br>
+        e Crescimento Endógeno
+    </p>
+    <p style="margin-top: 80px; font-size: 1.3em; color: var(--primary-color);">
+        <strong>Lucas Rafael de Andrade</strong>
+    </p>
+</div>
+
+<!-- SUMÁRIO -->
+<nav class="toc">
+    <h2>Sumário</h2>
+    <ul>
+        <li><a href="#cap1"><span class="section-number">1.</span> Modelo de Solow Básico</a></li>
+        <li><a href="#cap2"><span class="section-number">2.</span> Solow com Progresso Técnico</a></li>
+        <li><a href="#cap3"><span class="section-number">3.</span> Regra de Ouro e Ineficiência Dinâmica</a></li>
+        <li><a href="#cap4"><span class="section-number">4.</span> Convergência e Dinâmica de Transição</a></li>
+        <li><a href="#cap5"><span class="section-number">5.</span> Modelo de Ramsey-Cass-Koopmans</a></li>
+        <li><a href="#cap6"><span class="section-number">6.</span> Crescimento Endógeno</a></li>
+        <li><a href="#cap7"><span class="section-number">7.</span> Modelos com Governo e Políticas Públicas</a></li>
+        <li><a href="#cap8"><span class="section-number">8.</span> Extensões: Economia Aberta e RBC</a></li>
+        <li><a href="#formulas"><span class="section-number">A.</span> Fórmulas-Chave e Resultados Resumidos</a></li>
+        <li><a href="#estrategias"><span class="section-number">B.</span> Estratégias de Resolução</a></li>
+        <li><a href="#exercicios"><span class="section-number">C.</span> Exercícios Selecionados</a></li>
+    </ul>
+</nav>
+
+<!-- CAPÍTULO 1 -->
+<section class="chapter" id="cap1">
+    <h1 class="chapter-title"><span class="chapter-number">1</span> Modelo de Solow Básico</h1>
+    
+    <h2>1.1 Estrutura Fundamental</h2>
+    
+    <h3>Função de Produção Agregada</h3>
+    
+    <div class="equation">
+        \[ Y_t = F(K_t, L_t) \]
+    </div>
+    
+    <h4>Propriedades:</h4>
+    <ul>
+        <li><strong>Retornos constantes de escala (CRS):</strong> \( F(\lambda K, \lambda L) = \lambda F(K,L) \)</li>
+        <li><strong>Produtividades marginais positivas e decrescentes:</strong> \( F_K > 0, F_L > 0, F_{KK} < 0, F_{LL} < 0 \)</li>
+        <li><strong>Condições de Inada:</strong>
+            <ul>
+                <li>\( \lim_{K \to 0} F_K = \infty \), \( \lim_{K \to \infty} F_K = 0 \)</li>
+                <li>\( \lim_{L \to 0} F_L = \infty \), \( \lim_{L \to \infty} F_L = 0 \)</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h3>Forma Intensiva</h3>
+    <p>Dividindo por \(L\), obtemos a função por trabalhador:</p>
+    
+    <div class="equation">
+        \[ y = \frac{Y}{L} = f(k), \quad k = \frac{K}{L} \]
+    </div>
+    
+    <p>onde \( f(k) = F(k, 1) \) herda as propriedades: \( f'(k) > 0 \), \( f''(k) < 0 \)</p>
+    
+    <h2>1.2 Dinâmica de Acumulação</h2>
+    
+    <h3>Equação de acumulação do capital</h3>
+    
+    <div class="equation">
+        \[ \dot{K} = I - \delta K = sY - \delta K \]
+    </div>
+    
+    <p>onde:</p>
+    <ul>
+        <li>\( s \in (0,1) \) é a taxa de poupança (exógena)</li>
+        <li>\( \delta > 0 \) é a taxa de depreciação</li>
+        <li>\( I = sY \) (investimento = poupança)</li>
+    </ul>
+    
+    <h3>População/Trabalho</h3>
+    
+    <div class="equation">
+        \[ \frac{\dot{L}}{L} = n \Rightarrow L(t) = L_0 e^{nt} \]
+    </div>
+    
+    <h3>Dinâmica de \( k = K/L \)</h3>
+    
+    <p>Usando a regra da derivada do quociente:</p>
+    
+    <div class="equation">
+        \[ \dot{k} = \frac{\dot{K}}{L} - \frac{K\dot{L}}{L^2} = \frac{\dot{K}}{L} - nk \]
+    </div>
+    
+    <p>Substituindo \( \dot{K} = sY - \delta K \):</p>
+    
+    <div class="equation-box">
+        \[ \boxed{\dot{k} = sf(k) - (n + \delta)k} \]
+    </div>
+    
+    <div class="interpretation">
+        <span class="interpretation-title">Interpretação:</span>
+        <ul>
+            <li>\( sf(k) \): investimento efetivo por trabalhador</li>
+            <li>\( (n + \delta)k \): break-even (necessário para manter \(k\) constante)</li>
+        </ul>
+    </div>
+    
+    <h2>1.3 Estado Estacionário (Steady State)</h2>
+    
+    <p><strong>Condição:</strong> \( \dot{k} = 0 \)</p>
+    
+    <div class="equation-box">
+        \[ sf(k^*) = (n + \delta)k^* \]
+    </div>
+    
+    <p>ou equivalentemente:</p>
+    
+    <div class="equation">
+        \[ \frac{f(k^*)}{k^*} = \frac{n + \delta}{s} \]
+    </div>
+    
+    <h3>Existência e Unicidade</h3>
+    
+    <p>Pelas condições de Inada e concavidade de \(f\):</p>
+    <ul>
+        <li>\( \lim_{k \to 0} \frac{f(k)}{k} = \infty \) (curva \(sf(k)\) começa acima do break-even)</li>
+        <li>\( \lim_{k \to \infty} \frac{f(k)}{k} = 0 \) (curva \(sf(k)\) termina abaixo do break-even)</li>
+        <li>\( \frac{d}{dk}\left(\frac{f(k)}{k}\right) < 0 \) (produto médio decrescente)</li>
+    </ul>
+    
+    <div class="result">
+        <span class="result-title">Resultado:</span>
+        Portanto, existe um único \( k^* > 0 \).
+    </div>
+    
+    <h3>Estabilidade</h3>
+    
+    <p>Linearizando em torno de \( k^* \):</p>
+    
+    <div class="equation">
+        \[ \left.\frac{d\dot{k}}{dk}\right|_{k^*} = sf'(k^*) - (n + \delta) \]
+    </div>
+    
+    <p>No estado estacionário, \( sf'(k^*) < (n + \delta) \) porque a curva \( sf(k) \) cresce mais lentamente que a linha de break-even (por concavidade). Logo:</p>
+    
+    <div class="equation">
+        \[ \left.\frac{d\dot{k}}{dk}\right|_{k^*} < 0 \]
+    </div>
+    
+    <div class="theorem">
+        <span class="theorem-title">Conclusão:</span>
+        O estado estacionário é localmente estável.
+    </div>
+    
+    <h2>1.4 Taxas de Crescimento no Estado Estacionário</h2>
+    
+    <p>No steady state:</p>
+    <ul>
+        <li>\( \hat{k} = 0 \) (capital por trabalhador constante)</li>
+        <li>\( \hat{K} = n \) (capital cresce à taxa populacional)</li>
+        <li>\( \hat{Y} = n \) (produto cresce à taxa populacional)</li>
+        <li>\( \hat{y} = 0 \) (produto por trabalhador constante)</li>
+    </ul>
+    
+    <div class="important-box">
+        <strong>Implicação:</strong> No modelo de Solow básico, não há crescimento per capita no longo prazo sem progresso técnico.
+    </div>
+</section>
+
+<!-- CAPÍTULO 2 -->
+<section class="chapter" id="cap2">
+    <h1 class="chapter-title"><span class="chapter-number">2</span> Solow com Progresso Técnico</h1>
+    
+    <h2>2.1 Progresso Técnico Harrod-Neutro (Aumentador de Trabalho)</h2>
+    
+    <h3>Função de produção</h3>
+    
+    <div class="equation">
+        \[ Y = F(K, AL) \]
+    </div>
+    
+    <p>onde \( A(t) = A_0 e^{gt} \) é a tecnologia/produtividade, crescendo a taxa \( g > 0 \).</p>
+    
+    <h3>Trabalho efetivo</h3>
+    
+    <div class="equation">
+        \[ L_e = AL \]
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Por que Harrod-neutro?</strong><br>
+        No caminho de crescimento equilibrado com Cobb-Douglas:
+        <ul>
+            <li>A participação dos fatores na renda permanece constante</li>
+            <li>É compatível com os "fatos estilizados de Kaldor"</li>
+        </ul>
+    </div>
+    
+    <h2>2.2 Variáveis em Unidades de Trabalho Efetivo</h2>
+    
+    <h3>Definições</h3>
+    
+    <div class="equation">
+        \[ k \equiv \frac{K}{AL}, \quad y \equiv \frac{Y}{AL} \]
+    </div>
+    
+    <h3>Forma intensiva</h3>
+    
+    <div class="equation">
+        \[ y = f(k) = F\left(\frac{K}{AL}, 1\right) \]
+    </div>
+    
+    <h2>2.3 Dinâmica</h2>
+    
+    <p>Derivando \( k = K/(AL) \):</p>
+    
+    <div class="equation">
+        \[ \dot{k} = \frac{\dot{K}}{AL} - \frac{K(\dot{A}L + A\dot{L})}{(AL)^2} \]
+    </div>
+    
+    <p>Simplificando:</p>
+    
+    <div class="equation">
+        \[ \dot{k} = \frac{\dot{K}}{AL} - k\left(\frac{\dot{A}}{A} + \frac{\dot{L}}{L}\right) = \frac{sY - \delta K}{AL} - (g + n)k \]
+    </div>
+    
+    <div class="equation-box">
+        \[ \boxed{\dot{k} = sf(k) - (n + g + \delta)k} \]
+    </div>
+    
+    <div class="interpretation">
+        <span class="interpretation-title">Interpretação:</span>
+        <ul>
+            <li>Break-even agora é \( (n + g + \delta)k \)</li>
+            <li>Precisa-se investir mais para compensar o crescimento tecnológico</li>
+        </ul>
+    </div>
+    
+    <h2>2.4 Estado Estacionário com Progresso Técnico</h2>
+    
+    <p><strong>Condição:</strong> \( \dot{k} = 0 \)</p>
+    
+    <div class="equation-box">
+        \[ sf(k^*) = (n + g + \delta)k^* \]
+    </div>
+    
+    <h3>Taxas de crescimento no BGP (Balanced Growth Path)</h3>
+    
+    <p><strong>Em termos de trabalho efetivo:</strong></p>
+    <ul>
+        <li>\( \hat{k} = 0 \)</li>
+        <li>\( \hat{y} = 0 \)</li>
+    </ul>
+    
+    <p><strong>Em termos per capita (por trabalhador):</strong></p>
+    <ul>
+        <li>\( \hat{K} - \hat{L} = g \) → \( \widehat{K/L} = g \)</li>
+        <li>\( \hat{Y} - \hat{L} = g \) → \( \widehat{Y/L} = g \)</li>
+    </ul>
+    
+    <p><strong>Em termos agregados:</strong></p>
+    <ul>
+        <li>\( \hat{K} = n + g \)</li>
+        <li>\( \hat{Y} = n + g \)</li>
+    </ul>
+    
+    <div class="theorem">
+        <span class="theorem-title">Conclusão:</span>
+        O crescimento per capita de longo prazo é determinado exclusivamente pela taxa de progresso técnico \( g \).
+    </div>
+    
+    <h2>2.5 Função Cobb-Douglas com Progresso Técnico</h2>
+    
+    <h3>Forma agregada</h3>
+    
+    <div class="equation">
+        \[ Y = K^\alpha (AL)^{1-\alpha} \]
+    </div>
+    
+    <h3>Forma intensiva</h3>
+    
+    <div class="equation">
+        \[ y = k^\alpha \]
+    </div>
+    
+    <h3>Estado estacionário</h3>
+    
+    <div class="equation">
+        \[ sk^\alpha = (n + g + \delta)k \]
+    </div>
+    
+    <div class="equation-box">
+        \[ k^{*} = \left(\frac{s}{n + g + \delta}\right)^{1/(1-\alpha)} \]
+    </div>
+    
+    <div class="equation-box">
+        \[ y^* = \left(\frac{s}{n + g + \delta}\right)^{\alpha/(1-\alpha)} \]
+    </div>
+    
+    <h3>Produto por trabalhador</h3>
+    
+    <div class="equation">
+        \[ \frac{Y}{L} = A \cdot y = A_0 e^{gt} \left(\frac{s}{n + g + \delta}\right)^{\alpha/(1-\alpha)} \]
+    </div>
+    
+    <p>Cresce exponencialmente à taxa \( g \).</p>
+    
+    <h2>2.6 Progresso Técnico Hicks-Neutro</h2>
+    
+    <h3>Função de produção</h3>
+    
+    <div class="equation">
+        \[ Y = A(t) F(K, L) \]
+    </div>
+    
+    <p>A tecnologia multiplica toda a função de produção.</p>
+    
+    <h4>Características:</h4>
+    <ul>
+        <li>Não altera a TMS entre fatores</li>
+        <li>Em Cobb-Douglas: \( Y = A K^\alpha L^{1-\alpha} \)</li>
+        <li>Equivalente ao Harrod-neutro apenas para Cobb-Douglas</li>
+    </ul>
+    
+    <h2>2.7 Progresso Técnico Incorporado ao Capital (Capital-Augmenting)</h2>
+    
+    <h3>Função de produção</h3>
+    
+    <div class="equation">
+        \[ Y = F(AK, L) = (AK)^\alpha L^{1-\alpha} \]
+    </div>
+    
+    <p><strong>Normalização:</strong> Defina variáveis por \( A^\phi L \), onde \( \phi = \frac{\alpha}{1-\alpha} \)</p>
+    
+    <div class="result">
+        <span class="result-title">Resultado:</span>
+        Obtém-se dinâmica similar, mas o crescimento per capita depende de \( \phi \mu = \frac{\alpha}{1-\alpha}\mu \), onde \( \mu = \hat{A} \).
+    </div>
+</section>
+
+<!-- CAPÍTULO 3 -->
+<section class="chapter" id="cap3">
+    <h1 class="chapter-title"><span class="chapter-number">3</span> Regra de Ouro e Ineficiência Dinâmica</h1>
+    
+    <h2>3.1 Consumo no Estado Estacionário</h2>
+    
+    <h3>Identidade de recursos</h3>
+    
+    <div class="equation">
+        \[ Y = C + I \]
+    </div>
+    
+    <p>No steady state: \( I = (n + g + \delta)k^* \)</p>
+    
+    <p>Logo:</p>
+    
+    <div class="equation-box">
+        \[ c^* = f(k^*) - (n + g + \delta)k^* \]
+    </div>
+    
+    <p><strong>Questão:</strong> Qual \( k^* \) maximiza \( c^* \)?</p>
+    
+    <h2>3.2 Derivação da Regra de Ouro</h2>
+    
+    <p><strong>Problema:</strong> Maximizar \( c = f(k) - (n + g + \delta)k \)</p>
+    
+    <h3>CPO:</h3>
+    
+    <div class="equation">
+        \[ \frac{dc}{dk} = f'(k) - (n + g + \delta) = 0 \]
+    </div>
+    
+    <div class="equation-box equation-gold">
+        \[ \boxed{f'(k_{gold}) = n + g + \delta} \]
+        <p style="margin-top: 10px; font-weight: bold; color: #b7791f;">Regra de Ouro</p>
+    </div>
+    
+    <p><strong>CSO:</strong> \( f''(k) < 0 \) → é máximo</p>
+    
+    <div class="interpretation">
+        <span class="interpretation-title">Interpretação:</span>
+        <ul>
+            <li>Produtividade marginal do capital = taxa de depreciação efetiva</li>
+            <li>PMgK = custo de manter uma unidade adicional de capital</li>
+        </ul>
+    </div>
+    
+    <h2>3.3 Taxa de Poupança de Ouro (Cobb-Douglas)</h2>
+    
+    <p>Para \( f(k) = Ak^\alpha \):</p>
+    
+    <p><strong>Condição de steady state:</strong></p>
+    <div class="equation">
+        \[ s \cdot Ak^{\alpha} = (n + g + \delta)k \]
+    </div>
+    
+    <p><strong>Regra de Ouro:</strong></p>
+    <div class="equation">
+        \[ \alpha A k^{\alpha - 1} = n + g + \delta \]
+    </div>
+    
+    <p>Dividindo a primeira pela segunda:</p>
+    
+    <div class="equation">
+        \[ \frac{s \cdot Ak^\alpha}{\alpha A k^{\alpha-1}} = \frac{(n + g + \delta)k}{n + g + \delta} \]
+    </div>
+    
+    <div class="equation">
+        \[ \frac{sk}{\alpha} = k \]
+    </div>
+    
+    <div class="equation-box equation-gold">
+        \[ \boxed{s_{gold} = \alpha} \]
+    </div>
+    
+    <div class="theorem">
+        <span class="theorem-title">Resultado:</span>
+        A taxa de poupança ótima é igual à participação do capital na renda!
+    </div>
+    
+    <h2>3.4 Ineficiência Dinâmica</h2>
+    
+    <div class="definition">
+        <span class="definition-title">Definição:</span>
+        Uma economia é <strong>dinamicamente ineficiente</strong> se \( k^* > k_{gold} \).
+    </div>
+    
+    <h3>Implicação</h3>
+    
+    <div class="equation">
+        \[ f'(k^*) < n + g + \delta \]
+    </div>
+    
+    <p>Há "excesso de capital" - a sociedade poderia consumir mais reduzindo \( k \).</p>
+    
+    <h3>Condição em termos de \( s \)</h3>
+    
+    <p>Se \( s > s_{gold} = \alpha \), então:</p>
+    
+    <div class="equation">
+        \[ k^* = \left(\frac{s}{n+g+\delta}\right)^{1/(1-\alpha)} > \left(\frac{\alpha}{n+g+\delta}\right)^{1/(1-\alpha)} = k_{gold} \]
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Na prática:</strong> Ineficiência dinâmica é rara. Estimativas empíricas sugerem \( s < \alpha \) na maioria dos países.
+    </div>
+    
+    <h2>3.5 Estática Comparativa: Efeito de \( s \) sobre \( c^* \)</h2>
+    
+    <p><strong>Diferenciação implícita da condição de steady state:</strong></p>
+    
+    <div class="equation">
+        \[ s f(k^*) = (n + g + \delta)k^* \]
+    </div>
+    
+    <p>Diferenciando:</p>
+    
+    <div class="equation">
+        \[ f(k^*) + sf'(k^*)\frac{dk^*}{ds} = (n + g + \delta)\frac{dk^*}{ds} \]
+    </div>
+    
+    <div class="equation">
+        \[ \frac{dk^*}{ds} = \frac{f(k^*)}{(n + g + \delta) - sf'(k^*)} > 0 \]
+    </div>
+    
+    <p>(denominador positivo por estabilidade)</p>
+    
+    <p><strong>Para o consumo:</strong> \( c^* = f(k^*) - (n + g + \delta)k^* \)</p>
+    
+    <div class="equation">
+        \[ \frac{dc^*}{ds} = \left[f'(k^*) - (n + g + \delta)\right] \frac{dk^*}{ds} \]
+    </div>
+    
+    <h4>Sinal:</h4>
+    <ul>
+        <li>Se \( k^* < k_{gold} \) → \( f'(k^*) > n + g + \delta \) → \( \frac{dc^*}{ds} > 0 \)</li>
+        <li>Se \( k^* > k_{gold} \) → \( f'(k^*) < n + g + \delta \) → \( \frac{dc^*}{ds} < 0 \)</li>
+        <li>Se \( k^* = k_{gold} \) → \( \frac{dc^*}{ds} = 0 \)</li>
+    </ul>
+</section>
+
+<!-- CAPÍTULO 4 -->
+<section class="chapter" id="cap4">
+    <h1 class="chapter-title"><span class="chapter-number">4</span> Convergência e Dinâmica de Transição</h1>
+    
+    <h2>4.1 Velocidade de Convergência</h2>
+    
+    <p><strong>Linearização em torno de \( k^* \):</strong></p>
+    
+    <p>Seja \( \tilde{k}(t) = k(t) - k^* \) o desvio.</p>
+    
+    <div class="equation">
+        \[ \dot{\tilde{k}} = \dot{k} = sf(k) - (n + g + \delta)k \]
+    </div>
+    
+    <p>Expandindo em Taylor de primeira ordem:</p>
+    
+    <div class="equation">
+        \[ \dot{\tilde{k}} \approx [sf'(k^*) - (n + g + \delta)]\tilde{k} \]
+    </div>
+    
+    <p>Defina:</p>
+    
+    <div class="equation">
+        \[ \lambda \equiv (n + g + \delta) - sf'(k^*) \]
+    </div>
+    
+    <p>Note que \( \lambda > 0 \) por estabilidade.</p>
+    
+    <div class="equation-box">
+        \[ \boxed{\dot{\tilde{k}} = -\lambda \tilde{k}} \]
+    </div>
+    
+    <h3>Solução</h3>
+    
+    <div class="equation">
+        \[ \tilde{k}(t) = \tilde{k}(0) e^{-\lambda t} \]
+    </div>
+    
+    <div class="equation-box">
+        \[ k(t) = k^* + [k(0) - k^*]e^{-\lambda t} \]
+    </div>
+    
+    <h2>4.2 Meia-Vida</h2>
+    
+    <p>Tempo para percorrer metade da distância até \( k^* \):</p>
+    
+    <div class="equation">
+        \[ \frac{1}{2}[k(0) - k^*] = [k(0) - k^*]e^{-\lambda \tau_{1/2}} \]
+    </div>
+    
+    <div class="equation">
+        \[ e^{-\lambda \tau_{1/2}} = \frac{1}{2} \]
+    </div>
+    
+    <div class="equation-box">
+        \[ \boxed{\tau_{1/2} = \frac{\ln 2}{\lambda} \approx \frac{0.693}{\lambda}} \]
+    </div>
+    
+    <h2>4.3 Velocidade para Cobb-Douglas</h2>
+    
+    <div class="equation">
+        \[ \lambda = (n + g + \delta) - s \cdot \alpha A (k^*)^{\alpha - 1} \]
+    </div>
+    
+    <p>No steady state: \( sA(k^*)^\alpha = (n + g + \delta)k^* \)</p>
+    
+    <p>Logo: \( \alpha A (k^*)^{\alpha-1} = \frac{(n + g + \delta)k^*}{sk^*} = \frac{n + g + \delta}{s/\alpha} \)</p>
+    
+    <p>Simplificando:</p>
+    
+    <div class="equation-box">
+        \[ \lambda = (n + g + \delta)(1 - \alpha) \]
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Importante:</strong> A convergência é mais rápida quanto:
+        <ul>
+            <li>Menor for \( \alpha \) (menor participação do capital)</li>
+            <li>Maior for \( n + g + \delta \)</li>
+        </ul>
+    </div>
+    
+    <div class="result">
+        <span class="result-title">Exemplo numérico:</span>
+        <ul>
+            <li>\( \alpha = 1/3 \), \( n = 0.01 \), \( g = 0.02 \), \( \delta = 0.05 \)</li>
+            <li>\( \lambda = 0.08 \times (2/3) = 0.0533 \)</li>
+            <li>\( \tau_{1/2} = 13 \) anos</li>
+        </ul>
+    </div>
+    
+    <h2>4.4 Taxa de Crescimento Fora do Steady State</h2>
+    
+    <p>Para \( y = k^\alpha \):</p>
+    
+    <div class="equation">
+        \[ \hat{y} = \alpha \hat{k} = \alpha \frac{\dot{k}}{k} = \alpha \frac{sf(k) - (n + g + \delta)k}{k} \]
+    </div>
+    
+    <div class="equation">
+        \[ \hat{y} = \alpha \left[s\frac{f(k)}{k} - (n + g + \delta)\right] \]
+    </div>
+    
+    <p>Quando \( k < k^* \): \( \frac{f(k)}{k} > \frac{f(k^*)}{k^*} \) → \( \hat{y} > 0 \)</p>
+    
+    <h3>Convergência β (condicional)</h3>
+    
+    <p>Países com mesmo \( s \), \( n \), \( g \), \( \delta \) mas diferentes \( k(0) \) convergem para o mesmo \( k^* \).</p>
+    
+    <ul>
+        <li>Países pobres crescem mais rápido (β-convergência)</li>
+        <li>Mas apenas condicionalmente aos parâmetros estruturais</li>
+    </ul>
+    
+    <h2>4.5 Dinâmica usando Razão Capital-Produto</h2>
+    
+    <p><strong>Definição:</strong> \( x_t \equiv \frac{K_t}{Y_t} \)</p>
+    
+    <p>Para tecnologia Hicks-neutra: \( Y = AK^\alpha N^{1-\alpha} \)</p>
+    
+    <div class="equation">
+        \[ \hat{x} = \hat{K} - \hat{Y} \]
+    </div>
+    
+    <p>Como \( \hat{K} = \frac{I}{K} - \delta = \frac{sY}{K} - \delta = \frac{s}{x} - \delta \)</p>
+    
+    <p>E \( \hat{Y} = \alpha\hat{K} + (1-\alpha)(n + g) \)</p>
+    
+    <p>Substituindo e rearranjando:</p>
+    
+    <div class="equation">
+        \[ \dot{x} = x\left[\frac{s}{x} - \delta - \alpha\left(\frac{s}{x} - \delta\right) - (1-\alpha)(n+g)\right] \]
+    </div>
+    
+    <div class="equation-box">
+        \[ \boxed{\dot{x} = (1-\alpha)[s - x(n + g + \delta)]} \]
+    </div>
+    
+    <h3>Estado estacionário</h3>
+    
+    <div class="equation">
+        \[ x^* = \frac{s}{n + g + \delta} \]
+    </div>
+    
+    <h3>Velocidade de convergência</h3>
+    
+    <div class="equation">
+        \[ \lambda = (1-\alpha)(n + g + \delta) \]
+    </div>
+    
+    <p>(mesmo resultado!)</p>
+</section>
+
+<!-- CAPÍTULO 5 -->
+<section class="chapter" id="cap5">
+    <h1 class="chapter-title"><span class="chapter-number">5</span> Modelo de Ramsey-Cass-Koopmans</h1>
+    
+    <h2>5.1 Motivação</h2>
+    
+    <p><strong>Limitação do Solow:</strong> Taxa de poupança \( s \) é exógena.</p>
+    
+    <p><strong>RCK:</strong> Microfundamenta a decisão de poupança através de um problema de otimização intertemporal.</p>
+    
+    <h2>5.2 Estrutura do Modelo</h2>
+    
+    <p><strong>Agente representativo:</strong> Escolhe sequência de consumo \( \{C(t)\}_{t=0}^\infty \) para maximizar:</p>
+    
+    <div class="equation-box">
+        \[ \max \int_0^\infty e^{-\rho t} u(c(t)) L(t) dt \]
+    </div>
+    
+    <p>onde:</p>
+    <ul>
+        <li>\( \rho > 0 \): taxa de desconto intertemporal (impaciência)</li>
+        <li>\( u(c) \): utilidade instantânea per capita</li>
+        <li>\( c = C/L \): consumo per capita</li>
+    </ul>
+    
+    <h3>Forma CRRA</h3>
+    
+    <div class="equation">
+        \[ u(c) = \frac{c^{1-\theta} - 1}{1-\theta}, \quad \theta > 0 \]
+    </div>
+    
+    <p><strong>Casos especiais:</strong></p>
+    <ul>
+        <li>\( \theta = 1 \): \( u(c) = \ln c \) (logarítmica)</li>
+        <li>\( \theta \to 0 \): utilidade linear</li>
+        <li>\( \theta \to \infty \): Leontieff (consumo constante)</li>
+    </ul>
+    
+    <h3>Elasticidade de substituição intertemporal</h3>
+    
+    <div class="equation">
+        \[ \sigma = \frac{1}{\theta} \]
+    </div>
+    
+    <h2>5.3 Restrições</h2>
+    
+    <h3>Acumulação de capital</h3>
+    
+    <div class="equation">
+        \[ \dot{K} = Y - C - \delta K \]
+    </div>
+    
+    <p><strong>Em termos per capita</strong> (sem progresso técnico):</p>
+    <div class="equation">
+        \[ \dot{k} = f(k) - c - (n + \delta)k \]
+    </div>
+    
+    <p><strong>Com progresso técnico Harrod-neutro:</strong></p>
+    <p>Variáveis por trabalho efetivo: \( k = K/(AL) \), \( c = C/(AL) \)</p>
+    
+    <div class="equation">
+        \[ \dot{k} = f(k) - c - (n + g + \delta)k \]
+    </div>
+    
+    <h2>5.4 Hamiltoniano e Condições de Otimalidade</h2>
+    
+    <h3>Hamiltoniano em valor corrente</h3>
+    
+    <div class="equation">
+        \[ \mathcal{H} = \frac{c^{1-\theta} - 1}{1-\theta} + \lambda[f(k) - c - (n + g + \delta)k] \]
+    </div>
+    
+    <h3>CPOs</h3>
+    
+    <p><strong>1.</strong> \( \frac{\partial \mathcal{H}}{\partial c} = 0 \):</p>
+    <div class="equation">
+        \[ c^{-\theta} = \lambda \]
+    </div>
+    
+    <p><strong>2.</strong> \( \frac{\partial \mathcal{H}}{\partial k} = \rho \lambda - \dot{\lambda} \):</p>
+    <div class="equation">
+        \[ \lambda[f'(k) - (n + g + \delta)] = \rho\lambda - \dot{\lambda} \]
+    </div>
+    
+    <h2>5.5 Equação de Euler</h2>
+    
+    <p>Diferenciando a primeira CPO:</p>
+    
+    <div class="equation">
+        \[ -\theta c^{-\theta-1}\dot{c} = \dot{\lambda} \]
+    </div>
+    
+    <div class="equation">
+        \[ \dot{\lambda} = -\theta \frac{\dot{c}}{c} \lambda \]
+    </div>
+    
+    <p>Substituindo na segunda CPO:</p>
+    
+    <div class="equation">
+        \[ \lambda[f'(k) - (n + g + \delta)] = \rho\lambda + \theta\frac{\dot{c}}{c}\lambda \]
+    </div>
+    
+    <div class="equation-box">
+        \[ \boxed{\frac{\dot{c}}{c} = \frac{1}{\theta}[f'(k) - (n + g + \delta + \rho)]} \]
+    </div>
+    
+    <p>ou, definindo \( \tilde{\delta} \equiv n + g + \delta + \rho \):</p>
+    
+    <div class="equation">
+        \[ \frac{\dot{c}}{c} = \frac{1}{\theta}[f'(k) - \tilde{\delta}] \]
+    </div>
+    
+    <div class="interpretation">
+        <span class="interpretation-title">Interpretação:</span>
+        <ul>
+            <li>Se \( f'(k) > \tilde{\delta} \): vale a pena poupar → consumo cresce</li>
+            <li>Se \( f'(k) < \tilde{\delta} \): não vale poupar → consumo decresce</li>
+            <li>Se \( f'(k) = \tilde{\delta} \): indiferente → consumo constante (steady state)</li>
+        </ul>
+    </div>
+    
+    <h2>5.6 Sistema Dinâmico</h2>
+    
+    <p>O modelo RCK é caracterizado por um sistema bidimensional:</p>
+    
+    <div class="equation-box">
+        \[ \begin{cases}
+        \dot{k} = f(k) - c - (n + g + \delta)k \\[10pt]
+        \dot{c} = \frac{c}{\theta}[f'(k) - (n + g + \delta + \rho)]
+        \end{cases} \]
+    </div>
+    
+    <h2>5.7 Estado Estacionário</h2>
+    
+    <p><strong>Condição:</strong> \( \dot{k} = 0 \) e \( \dot{c} = 0 \)</p>
+    
+    <p>Da equação de Euler: \( \dot{c} = 0 \) implica</p>
+    
+    <div class="equation-box">
+        \[ \boxed{f'(k^*) = n + g + \delta + \rho} \]
+        <p style="margin-top: 10px; font-weight: bold;">Regra de Keynes-Ramsey modificada</p>
+    </div>
+    
+    <p>Da restrição orçamentária: \( \dot{k} = 0 \) implica</p>
+    
+    <div class="equation">
+        \[ c^* = f(k^*) - (n + g + \delta)k^* \]
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Comparação com Solow:</strong>
+        <ul>
+            <li><strong>Solow:</strong> \( k^* \) determinado por \( s \) exógeno</li>
+            <li><strong>RCK:</strong> \( k^* \) determinado por preferências (\( \rho \), \( \theta \))</li>
+        </ul>
+    </div>
+    
+    <h2>5.8 Diagrama de Fases</h2>
+    
+    <h3>Curva \( \dot{k} = 0 \)</h3>
+    
+    <div class="equation">
+        \[ c = f(k) - (n + g + \delta)k \]
+    </div>
+    
+    <p>É a parábola do consumo (formato ∩). Máximo em \( k_{gold} \) onde \( f'(k_{gold}) = n + g + \delta \).</p>
+    
+    <h3>Curva \( \dot{c} = 0 \)</h3>
+    
+    <div class="equation">
+        \[ f'(k) = n + g + \delta + \rho \]
+    </div>
+    
+    <p>É uma linha vertical em \( k = k^* \).</p>
+    
+    <h3>Dinâmica</h3>
+    <ul>
+        <li>À direita de \( \dot{c} = 0 \): \( f'(k) < \tilde{\delta} \) → \( \dot{c} < 0 \) (consumo cai)</li>
+        <li>À esquerda: \( \dot{c} > 0 \) (consumo sobe)</li>
+        <li>Acima de \( \dot{k} = 0 \): \( c \) muito alto → \( \dot{k} < 0 \) (capital cai)</li>
+        <li>Abaixo: \( \dot{k} > 0 \) (capital sobe)</li>
+    </ul>
+    
+    <h3>Sela (Saddle Point)</h3>
+    
+    <p>O steady state \( (k^*, c^*) \) é um ponto de sela:</p>
+    <ul>
+        <li>Existe uma única trajetória convergente (saddle path)</li>
+        <li>Trajetórias fora dela divergem</li>
+    </ul>
+    
+    <h4>Jacobiano</h4>
+    
+    <div class="equation">
+        \[ J = \begin{pmatrix} f'(k^*) - (n+g+\delta) & -1 \\ \frac{c^*}{\theta}f''(k^*) & 0 \end{pmatrix} \]
+    </div>
+    
+    <div class="equation">
+        \[ \det(J) = -\frac{c^*}{\theta}f''(k^*) > 0 \quad \text{(pois } f'' < 0\text{)} \]
+    </div>
+    
+    <div class="equation">
+        \[ \text{tr}(J) = f'(k^*) - (n+g+\delta) = \rho > 0 \]
+    </div>
+    
+    <div class="result">
+        <span class="result-title">Resultado:</span>
+        Como \( \det > 0 \) e \( \text{tr} > 0 \), temos autovalores com sinais opostos → ponto de sela.
+    </div>
+    
+    <h2>5.9 RCK vs Solow: Comparação</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Aspecto</th>
+                <th>Solow</th>
+                <th>RCK</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>\( s \)</td>
+                <td>Exógeno</td>
+                <td>Endógeno (via \( c(t) \))</td>
+            </tr>
+            <tr>
+                <td>\( k^* \)</td>
+                <td>\( \left(\frac{s}{n+g+\delta}\right)^{1/(1-\alpha)} \)</td>
+                <td>\( f'^{-1}(n+g+\delta+\rho) \)</td>
+            </tr>
+            <tr>
+                <td>Otimalidade</td>
+                <td>Não necessariamente ótimo</td>
+                <td>Ótimo por construção</td>
+            </tr>
+            <tr>
+                <td>Relação com Regra de Ouro</td>
+                <td>Pode ser \( \lessgtr k_{gold} \)</td>
+                <td>\( k^* < k_{gold} \) se \( \rho > 0 \)</td>
+            </tr>
+            <tr>
+                <td>Dinâmica</td>
+                <td>Univariada (\( k \))</td>
+                <td>Bivariada (\( k \), \( c \))</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="theorem">
+        <span class="theorem-title">Resultado:</span>
+        No RCK com \( \rho > 0 \):
+        \[ f'(k^*) = n + g + \delta + \rho > n + g + \delta = f'(k_{gold}) \]
+        Como \( f'' < 0 \): \( k^* < k_{gold} \)
+        <br><br>
+        <strong>Interpretação:</strong> Agentes impacientes acumulam menos capital que o nível de Regra de Ouro.
+    </div>
+    
+    <h2>5.10 Condição de Transversalidade</h2>
+    
+    <p>Para garantir otimalidade, precisamos:</p>
+    
+    <div class="equation-box">
+        \[ \lim_{t \to \infty} e^{-\rho t} \lambda(t) k(t) = 0 \]
+    </div>
+    
+    <div class="interpretation">
+        <span class="interpretation-title">Interpretação:</span>
+        O valor presente da riqueza terminal deve ser zero (sem dinheiro "deixado na mesa").
+    </div>
+</section>
+
+<!-- CAPÍTULO 6 -->
+<section class="chapter" id="cap6">
+    <h1 class="chapter-title"><span class="chapter-number">6</span> Crescimento Endógeno</h1>
+    
+    <h2>6.1 Motivação: Limitação do Modelo Neoclássico</h2>
+    
+    <div class="warning-box">
+        <strong>Problema do Solow:</strong>
+        <ul>
+            <li>Crescimento de longo prazo depende exclusivamente de \( g \) (exógeno)</li>
+            <li>Não explica as fontes do progresso técnico</li>
+            <li>Políticas (como \( s \)) afetam apenas níveis, não taxas de crescimento</li>
+        </ul>
+    </div>
+    
+    <p><strong>Objetivo:</strong> Endogeneizar \( g \) - torná-lo função de decisões econômicas.</p>
+    
+    <h2>6.2 Modelo AK</h2>
+    
+    <h3>Forma mais simples</h3>
+    
+    <div class="equation-box">
+        \[ Y = AK \]
+    </div>
+    
+    <h4>Características:</h4>
+    <ul>
+        <li>Retornos constantes no capital (não há PMgK decrescente)</li>
+        <li>Não há trabalho explicitamente (ou \( L \) normalizado a 1)</li>
+    </ul>
+    
+    <h3>Dinâmica</h3>
+    
+    <div class="equation">
+        \[ \dot{K} = sAK - \delta K = (sA - \delta)K \]
+    </div>
+    
+    <div class="equation-box">
+        \[ \boxed{\hat{K} = \hat{Y} = sA - \delta} \]
+    </div>
+    
+    <div class="theorem">
+        <span class="theorem-title">Resultado:</span>
+        Crescimento perpétuo endógeno, determinado por:
+        <ul>
+            <li>\( s \) (taxa de poupança)</li>
+            <li>\( A \) (tecnologia)</li>
+            <li>\( \delta \) (depreciação)</li>
+        </ul>
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Por que funciona?</strong>
+        <ul>
+            <li>Capital não apresenta retornos decrescentes</li>
+            <li>Pode ser interpretado como "capital amplo" (físico + humano + conhecimento)</li>
+        </ul>
+    </div>
+    
+    <h2>6.3 Modelo com Capital Humano (Lucas, 1988)</h2>
+    
+    <h3>Função de produção</h3>
+    
+    <div class="equation">
+        \[ Y = K^\alpha (uhL)^{1-\alpha} \]
+    </div>
+    
+    <p>onde:</p>
+    <ul>
+        <li>\( h \): estoque de capital humano por trabalhador</li>
+        <li>\( u \in [0,1] \): fração do tempo dedicada à produção</li>
+        <li>\( (1-u) \): tempo dedicado à acumulação de \( h \)</li>
+    </ul>
+    
+    <h3>Acumulação de capital humano</h3>
+    
+    <div class="equation">
+        \[ \dot{h} = \delta_h(1-u)h \]
+    </div>
+    
+    <p>onde \( \delta_h \) é a produtividade da educação.</p>
+    
+    <div class="result">
+        <span class="result-title">Resultado:</span>
+        Se \( \delta_h \) é suficientemente alto, a economia cresce perpetuamente.
+    </div>
+    
+    <h2>6.4 Modelo de P&D (Romer, 1990)</h2>
+    
+    <h3>Três setores</h3>
+    
+    <p><strong>1. Setor final:</strong> Produz bens com tecnologias existentes</p>
+    <div class="equation">
+        \[ Y = L_Y^\alpha \int_0^A x_i^{1-\alpha} di \]
+    </div>
+    
+    <p><strong>2. Setor intermediário:</strong> Produz variedades \( x_i \) usando capital</p>
+    
+    <p><strong>3. Setor de P&D:</strong> Cria novas variedades</p>
+    <div class="equation">
+        \[ \dot{A} = \delta_A L_A A \]
+    </div>
+    
+    <div class="highlight-box">
+        <strong>Propriedade:</strong> Conhecimento é:
+        <ul>
+            <li><strong>Não-rival:</strong> Uso por uma firma não impede uso por outra</li>
+            <li><strong>Parcialmente excludente:</strong> Patentes dão poder de mercado temporário</li>
+        </ul>
+    </div>
+    
+    <h3>Crescimento endógeno</h3>
+    
+    <div class="equation-box">
+        \[ \hat{A} = \delta_A L_A \]
+    </div>
+    
+    <p>Mais recursos em P&D (\( L_A \)) → maior crescimento.</p>
+    
+    <h2>6.5 Modelo com Governo e Congestionamento</h2>
+    
+    <h3>Função de produção da firma</h3>
+    
+    <div class="equation">
+        \[ Y_i = AK_i \cdot f(G/Y) \]
+    </div>
+    
+    <p>onde \( G \) são serviços públicos (infraestrutura) e \( f' > 0 \) (produtividade aumenta com \( G \)).</p>
+    
+    <p><strong>Congestionamento:</strong> O benefício de \( G \) diminui com o uso agregado \( Y \).</p>
+    
+    <h3>Economia agregada</h3>
+    
+    <div class="equation">
+        \[ Y = AK \cdot f(G/Y) \]
+    </div>
+    
+    <p>Se \( G = \tau Y \) (gasto público proporcional):</p>
+    
+    <div class="equation">
+        \[ Y = AK \cdot f(\tau) \]
+    </div>
+    
+    <div class="equation">
+        \[ \hat{Y} = (1-\tau)A f(\tau) - \delta \]
+    </div>
+    
+    <h3>Taxa ótima de tributação</h3>
+    
+    <p>Maximiza \( \hat{Y} \):</p>
+    
+    <div class="equation">
+        \[ \frac{d\hat{Y}}{d\tau} = A[f'(\tau)(1-\tau) - f(\tau)] = 0 \]
+    </div>
+    
+    <div class="equation">
+        \[ (1-\tau^*)f'(\tau^*) = f(\tau^*) \]
+    </div>
+    
+    <div class="equation-box">
+        \[ \boxed{\tau^* = 1 - \frac{f(\tau^*)}{f'(\tau^*)}} \]
+    </div>
+    
+    <p>Para \( f(\tau) = \tau^\alpha \): \( \tau^* = \alpha \)</p>
+    
+    <div class="interpretation">
+        <span class="interpretation-title">Interpretação:</span>
+        O tamanho ótimo do governo equilibra:
+        <ul>
+            <li>Benefício marginal da infraestrutura</li>
+            <li>Custo marginal da tributação</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CAPÍTULO 7 -->
+<section class="chapter" id="cap7">
+    <h1 class="chapter-title"><span class="chapter-number">7</span> Modelos com Governo e Políticas Públicas</h1>
+    
+    <h2>7.1 Solow com Gastos Governamentais</h2>
+    
+    <h3>Identidade de recursos</h3>
+    
+    <div class="equation">
+        \[ Y = C + I + G \]
+    </div>
+    
+    <h3>Regras de comportamento</h3>
+    
+    <div class="equation">
+        \[ G = \sigma Y, \quad C = (s - \lambda\sigma)Y \]
+    </div>
+    
+    <p>onde:</p>
+    <ul>
+        <li>\( \sigma \): tamanho do governo</li>
+        <li>\( \lambda \in [0,1] \): fração do gasto financiada por redução de \( C \) (vs. \( I \))</li>
+    </ul>
+    
+    <h3>Investimento</h3>
+    
+    <div class="equation">
+        \[ I = Y - C - G = [1 - s - \sigma(1-\lambda)]Y \]
+    </div>
+    
+    <h3>Lei de movimento</h3>
+    
+    <div class="equation">
+        \[ K_{t+1} = [1 - s - \sigma(1-\lambda)]Y_t + (1-\delta)K_t \]
+    </div>
+    
+    <p>Em forma intensiva:</p>
+    
+    <div class="equation">
+        \[ k_{t+1} = [1 - s - \sigma(1-\lambda)]f(k_t) + (1-\delta)k_t \]
+    </div>
+    
+    <h3>Steady state</h3>
+    
+    <div class="equation">
+        \[ k^* = [1 - s - \sigma(1-\lambda)]f(k^*) + (1-\delta)k^* \]
+    </div>
+    
+    <div class="equation">
+        \[ \frac{f(k^*)}{k^*} = \frac{\delta}{1 - s - \sigma(1-\lambda)} \]
+    </div>
+    
+    <h3>Estática comparativa</h3>
+    <ul>
+        <li>\( \uparrow \sigma \) → \( \uparrow \frac{\delta}{1-s-\sigma(1-\lambda)} \) → \( \downarrow k^* \) (pois \( f/k \) é decrescente)</li>
+        <li>\( \uparrow \lambda \) → \( \downarrow \frac{\delta}{1-s-\sigma(1-\lambda)} \) → \( \uparrow k^* \)</li>
+    </ul>
+    
+    <div class="interpretation">
+        <span class="interpretation-title">Interpretação:</span>
+        <ul>
+            <li>Mais gasto público reduz \( k^* \)</li>
+            <li>Financiamento via consumo (maior \( \lambda \)) mitiga o efeito negativo</li>
+        </ul>
+    </div>
+    
+    <h2>7.2 Equivalência Ricardiana</h2>
+    
+    <p><strong>Contexto:</strong> Governo pode financiar \( G \) via impostos \( T \) ou dívida \( B \).</p>
+    
+    <h3>Restrição orçamentária do governo</h3>
+    
+    <div class="equation">
+        \[ G + rB = T + \dot{B} \]
+    </div>
+    
+    <h3>Restrição orçamentária das famílias</h3>
+    
+    <div class="equation">
+        \[ \dot{A} = rA + Y - T - C \]
+    </div>
+    
+    <p>onde \( A \) são ativos (capital + títulos públicos).</p>
+    
+    <div class="theorem">
+        <span class="theorem-title">Teorema da Equivalência Ricardiana:</span>
+        Se:
+        <ul>
+            <li>Impostos lump-sum</li>
+            <li>Mercados de capital perfeitos</li>
+            <li>Horizontes infinitos (ou altruísmo dinástico)</li>
+            <li>Condição de transversalidade para governo e famílias</li>
+        </ul>
+        <br>
+        <strong>Então:</strong> O timing dos impostos é irrelevante - apenas importa o valor presente de \( G \).
+    </div>
+    
+    <div class="interpretation">
+        <span class="interpretation-title">Intuição:</span>
+        Dívida hoje = impostos futuros. Famílias antecipam e poupam mais.
+    </div>
+    
+    <h4>Falhas na prática:</h4>
+    <ul>
+        <li>Restrições de crédito</li>
+        <li>Horizontes finitos</li>
+        <li>Impostos distorcionários</li>
+    </ul>
+</section>
+
+<!-- CAPÍTULO 8 -->
+<section class="chapter" id="cap8">
+    <h1 class="chapter-title"><span class="chapter-number">8</span> Extensões e Tópicos Adicionais</h1>
+    
+    <h2>8.1 Economia Aberta: Paradoxo de Feldstein-Horioka</h2>
+    
+    <p>Sob mobilidade perfeita de capital:</p>
+    <ul>
+        <li>Investimento doméstico \( I \) deve ser determinado pela PMgK mundial</li>
+        <li>Poupança doméstica \( S \) pode diferir de \( I \)</li>
+        <li>Diferença financiada via conta corrente: \( CA = S - I \)</li>
+    </ul>
+    
+    <p><strong>Implicação:</strong> Baixa correlação entre \( S/Y \) e \( I/Y \) entre países.</p>
+    
+    <h3>Evidência empírica (Feldstein-Horioka, 1980)</h3>
+    
+    <div class="equation">
+        \[ \frac{I}{Y}_i = \alpha + \beta \frac{S}{Y}_i + \varepsilon_i \]
+    </div>
+    
+    <p><strong>Estimativa:</strong> \( \beta \approx 0.8 \) (muito alto!)</p>
+    
+    <h4>Interpretações:</h4>
+    <ul>
+        <li>Mobilidade de capital não é perfeita</li>
+        <li>Choques comuns afetam \( S \) e \( I \)</li>
+        <li>Endogeneidade de \( S \) e \( I \)</li>
+    </ul>
+    
+    <h2>8.2 Convergência: Absoluta vs. Condicional</h2>
+    
+    <div class="definition">
+        <span class="definition-title">β-convergência absoluta:</span>
+        Países pobres crescem mais rápido.
+        <br><br>
+        <strong>Evidência:</strong> Fraca entre países, forte entre regiões de um país.
+    </div>
+    
+    <div class="definition">
+        <span class="definition-title">β-convergência condicional:</span>
+        Países convergem para seus próprios \( k^* \) (determinados por \( s \), \( n \), instituições).
+    </div>
+    
+    <h3>No Solow</h3>
+    
+    <div class="equation">
+        \[ \ln y_t - \ln y_0 = (1 - e^{-\lambda t})\ln y^* - (1 - e^{-\lambda t})\ln y_0 \]
+    </div>
+    
+    <p>Rearranjando:</p>
+    
+    <div class="equation">
+        \[ \frac{1}{t}\ln\left(\frac{y_t}{y_0}\right) = -\frac{1-e^{-\lambda t}}{t}\ln y_0 + \text{termos em } y^* \]
+    </div>
+    
+    <h3>Regressão</h3>
+    
+    <div class="equation">
+        \[ \text{crescimento} = a - b \ln y_0 + \text{controles} \]
+    </div>
+    
+    <p>com \( b = \frac{1-e^{-\lambda t}}{t} \approx \lambda \) (para \( t \) pequeno)</p>
+    
+    <div class="result">
+        <span class="result-title">Evidência:</span>
+        \( \lambda \approx 2\% \) ao ano (Mankiw-Romer-Weil, 1992)
+    </div>
+    
+    <h2>8.3 Contabilidade do Crescimento (Growth Accounting)</h2>
+    
+    <h3>Decomposição Solow</h3>
+    
+    <p>Para \( Y = AK^\alpha L^{1-\alpha} \):</p>
+    
+    <div class="equation-box">
+        \[ \hat{Y} = \hat{A} + \alpha\hat{K} + (1-\alpha)\hat{L} \]
+    </div>
+    
+    <h3>Resíduo de Solow</h3>
+    
+    <div class="equation">
+        \[ \hat{A} = \hat{Y} - \alpha\hat{K} - (1-\alpha)\hat{L} \]
+    </div>
+    
+    <div class="warning-box">
+        <strong>Problemas:</strong>
+        <ul>
+            <li>\( \hat{A} \) é um resíduo ("medida da ignorância")</li>
+            <li>Inclui: progresso técnico, mudanças na qualidade dos insumos, economias de escala, mudanças na alocação, erros de medida</li>
+        </ul>
+    </div>
+    
+    <h4>Extensões:</h4>
+    <ul>
+        <li>Ajustar \( L \) por capital humano: \( L_e = h \cdot L \)</li>
+        <li>Ajustar \( K \) por utilização</li>
+        <li>Considerar mudanças composicionais</li>
+    </ul>
+    
+    <h2>8.4 Modelos RBC (Real Business Cycles)</h2>
+    
+    <p><strong>Ideia:</strong> Flutuações econômicas são respostas ótimas a choques tecnológicos.</p>
+    
+    <h3>Estrutura</h3>
+    <ul>
+        <li>Modelo RCK com choques estocásticos \( A_t \)</li>
+        <li>\( A_t \) segue processo AR(1): \( \ln A_t = \rho \ln A_{t-1} + \varepsilon_t \)</li>
+        <li>Famílias otimizam consumo e lazer</li>
+        <li>Mercados completos, preços flexíveis</li>
+    </ul>
+    
+    <h3>Mecanismo</h3>
+    <ol>
+        <li>Choque positivo de produtividade</li>
+        <li>\( \uparrow \) salário real → trabalho (efeito substituição intertemporal)</li>
+        <li>\( \uparrow \) investimento (PMgK sobe temporariamente)</li>
+        <li>\( \uparrow \) produto mais que proporcionalmente</li>
+    </ol>
+    
+    <h4>Críticas:</h4>
+    <ul>
+        <li>Pouca propagação interna (choques precisam ser muito persistentes)</li>
+        <li>Efeito riqueza vs. substituição no trabalho</li>
+        <li>Fontes dos choques tecnológicos não claras</li>
+    </ul>
+</section>
+
+<!-- APÊNDICE A: FÓRMULAS-CHAVE -->
+<section class="chapter" id="formulas">
+    <h1 class="chapter-title"><span class="chapter-number">A</span> Fórmulas-Chave e Resultados Resumidos</h1>
+    
+    <div class="formula-summary">
+        <h3>Modelo de Solow</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Fórmula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dinâmica básica</td>
+                    <td>\( \dot{k} = sf(k) - (n+\delta)k \)</td>
+                </tr>
+                <tr>
+                    <td>Com progresso técnico</td>
+                    <td>\( \dot{k} = sf(k) - (n+g+\delta)k \)</td>
+                </tr>
+                <tr>
+                    <td>Steady state</td>
+                    <td>\( sf(k^*) = (n+g+\delta)k^* \)</td>
+                </tr>
+                <tr>
+                    <td>Cobb-Douglas \( k^* \)</td>
+                    <td>\( k^* = \left(\frac{s}{n+g+\delta}\right)^{1/(1-\alpha)} \)</td>
+                </tr>
+                <tr>
+                    <td>Regra de Ouro</td>
+                    <td>\( f'(k_{gold}) = n+g+\delta \)</td>
+                </tr>
+                <tr>
+                    <td>\( s_{gold} \) (C-D)</td>
+                    <td>\( s_{gold} = \alpha \)</td>
+                </tr>
+                <tr>
+                    <td>Velocidade convergência</td>
+                    <td>\( \lambda = (1-\alpha)(n+g+\delta) \)</td>
+                </tr>
+                <tr>
+                    <td>Meia-vida</td>
+                    <td>\( \tau_{1/2} = \frac{\ln 2}{\lambda} \)</td>
+                </tr>
+                <tr>
+                    <td>Crescimento per capita (BGP)</td>
+                    <td>\( \widehat{Y/L} = g \)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="formula-summary">
+        <h3>Modelo RCK</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Fórmula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Equação de Euler</td>
+                    <td>\( \frac{\dot{c}}{c} = \frac{1}{\theta}[f'(k) - (n+g+\delta+\rho)] \)</td>
+                </tr>
+                <tr>
+                    <td>Steady state</td>
+                    <td>\( f'(k^*) = n+g+\delta+\rho \)</td>
+                </tr>
+                <tr>
+                    <td>Consumo SS</td>
+                    <td>\( c^* = f(k^*) - (n+g+\delta)k^* \)</td>
+                </tr>
+                <tr>
+                    <td>Relação com Ouro</td>
+                    <td>\( k^* < k_{gold} \) se \( \rho > 0 \)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="formula-summary">
+        <h3>Crescimento Endógeno</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Modelo</th>
+                    <th>Taxa de crescimento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AK</td>
+                    <td>\( \hat{Y} = sA - \delta \)</td>
+                </tr>
+                <tr>
+                    <td>Romer P&D</td>
+                    <td>\( \hat{A} = \delta_A L_A \)</td>
+                </tr>
+                <tr>
+                    <td>Governo ótimo</td>
+                    <td>Maximizar \( \hat{Y}(\tau) \)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- APÊNDICE B: ESTRATÉGIAS DE RESOLUÇÃO -->
+<section class="chapter" id="estrategias">
+    <h1 class="chapter-title"><span class="chapter-number">B</span> Estratégias de Resolução</h1>
+    
+    <div class="strategy-box">
+        <h3>1. Exercícios de Estado Estacionário</h3>
+        <p><strong>Passos:</strong></p>
+        <ol>
+            <li>Escrever a função de produção em forma intensiva</li>
+            <li>Aplicar \( \dot{k} = 0 \): \( sf(k^*) = (n+g+\delta)k^* \)</li>
+            <li>Resolver para \( k^* \)</li>
+            <li>Calcular \( y^* = f(k^*) \)</li>
+            <li>Calcular \( c^* = (1-s)y^* \) ou \( c^* = y^* - (n+g+\delta)k^* \)</li>
+        </ol>
+    </div>
+    
+    <div class="strategy-box">
+        <h3>2. Dinâmica de Transição</h3>
+        <p><strong>Passos:</strong></p>
+        <ol>
+            <li>Calcular \( \dot{k} \) para o \( k \) dado</li>
+            <li>Se \( \dot{k} > 0 \): economia acumulando capital</li>
+            <li>Calcular \( \hat{k} = \dot{k}/k \)</li>
+            <li>Para taxas agregadas: \( \hat{K} = \hat{k} + n + g \)</li>
+            <li>Para taxa per capita: \( \widehat{Y/L} = \hat{y} + g = \alpha\hat{k} + g \)</li>
+        </ol>
+    </div>
+    
+    <div class="strategy-box">
+        <h3>3. Regra de Ouro</h3>
+        <p><strong>Passos:</strong></p>
+        <ol>
+            <li>Escrever \( c = f(k) - (n+g+\delta)k \)</li>
+            <li>Derivar: \( \frac{dc}{dk} = f'(k) - (n+g+\delta) = 0 \)</li>
+            <li>Resolver para \( k_{gold} \)</li>
+            <li>Para C-D: usar \( f'(k) = \alpha k^{\alpha-1} \) e a condição de SS</li>
+            <li>Dividir para obter \( s_{gold} = \alpha \)</li>
+        </ol>
+    </div>
+    
+    <div class="strategy-box">
+        <h3>4. Convergência</h3>
+        <p><strong>Passos:</strong></p>
+        <ol>
+            <li>Linearizar em torno de \( k^* \)</li>
+            <li>Calcular \( \lambda = (n+g+\delta) - sf'(k^*) \)</li>
+            <li>Para C-D: \( \lambda = (1-\alpha)(n+g+\delta) \)</li>
+            <li>Meia-vida: \( \tau_{1/2} = \ln 2 / \lambda \)</li>
+        </ol>
+    </div>
+    
+    <div class="strategy-box">
+        <h3>5. RCK - Diagrama de Fases</h3>
+        <p><strong>Passos:</strong></p>
+        <ol>
+            <li>Curva \( \dot{k} = 0 \): \( c = f(k) - (n+g+\delta)k \)</li>
+            <li>Curva \( \dot{c} = 0 \): \( f'(k) = n+g+\delta+\rho \) (vertical em \( k^* \))</li>
+            <li>Encontrar interseção \( (k^*, c^*) \)</li>
+            <li>Analisar dinâmica em cada quadrante</li>
+            <li>Saddle path: única trajetória convergente</li>
+        </ol>
+    </div>
+</section>
+
+<!-- APÊNDICE C: EXERCÍCIOS SELECIONADOS -->
+<section class="chapter" id="exercicios">
+    <h1 class="chapter-title"><span class="chapter-number">C</span> Exercícios Selecionados</h1>
+    
+    <p>Esta seção contém exercícios cuidadosamente selecionados para cobrir os principais tópicos do curso. A resolução completa destes exercícios prepara o aluno para os demais problemas da lista.</p>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- EXERCÍCIO 1 -->
+    <div class="exercise">
+        <h2>Exercício 1 — Solow Básico com Trabalho Efetivo</h2>
+        <p><em>Tópicos: Estado estacionário, taxas de crescimento no BGP</em></p>
+        
+        <p>Considere a função de produção agregada:</p>
+        <div class="equation">
+            \[ Y = F(K, L_e) = 3K^{1/3}L_e^{2/3} \]
+        </div>
+        <p>onde \( L_e \equiv AL \) é o trabalho efetivo. Os parâmetros são:</p>
+        <div class="equation">
+            \[ s = 0{,}225, \quad \delta = 0{,}035, \quad n = 0{,}025, \quad g \equiv \hat{A} = 0{,}02 \]
+        </div>
+        
+        <p><strong>(a)</strong> Calcule a razão capital-trabalho efetivo de estado estacionário \( k^* \equiv K/L_e \).</p>
+        
+        <p><strong>(b)</strong> Indique as taxas de crescimento do produto agregado \( \hat{Y} \) e do produto por trabalhador \( \widehat{Y/L} \).</p>
+        
+        <div class="highlight-box">
+            <strong>Indicações:</strong>
+            <ul>
+                <li>Use \( y = f(k) = 3k^{1/3} \) e \( \dot{k} = sf(k) - (\delta + n + g)k \)</li>
+                <li>No ERG: \( \hat{k} = 0 \), \( \hat{Y} = n + g \) e \( \widehat{Y/L} = \hat{Y} - n \)</li>
+            </ul>
+        </div>
+        
+        <div class="solution">
+            <h3>Solução</h3>
+            
+            <h4>(a) Cálculo de \( k^* \)</h4>
+            
+            <p><strong>Passo 1:</strong> Identificar a forma intensiva.</p>
+            <p>Dividindo a função de produção por \( L_e = AL \):</p>
+            <div class="equation">
+                \[ y = \frac{Y}{L_e} = 3\left(\frac{K}{L_e}\right)^{1/3} = 3k^{1/3} \]
+            </div>
+            <p>Portanto, \( f(k) = 3k^{1/3} \) com \( \alpha = 1/3 \).</p>
+            
+            <p><strong>Passo 2:</strong> Aplicar a condição de estado estacionário.</p>
+            <p>No steady state, \( \dot{k} = 0 \):</p>
+            <div class="equation">
+                \[ sf(k^*) = (\delta + n + g)k^* \]
+            </div>
+            <div class="equation">
+                \[ s \cdot 3(k^*)^{1/3} = (\delta + n + g)k^* \]
+            </div>
+            
+            <p><strong>Passo 3:</strong> Resolver para \( k^* \).</p>
+            <p>Dividindo ambos os lados por \( (k^*)^{1/3} \):</p>
+            <div class="equation">
+                \[ 3s = (\delta + n + g)(k^*)^{2/3} \]
+            </div>
+            <div class="equation">
+                \[ (k^*)^{2/3} = \frac{3s}{\delta + n + g} \]
+            </div>
+            <div class="equation">
+                \[ k^* = \left(\frac{3s}{\delta + n + g}\right)^{3/2} \]
+            </div>
+            
+            <p><strong>Passo 4:</strong> Substituir os valores numéricos.</p>
+            <div class="equation">
+                \[ \delta + n + g = 0{,}035 + 0{,}025 + 0{,}02 = 0{,}08 \]
+            </div>
+            <div class="equation">
+                \[ k^* = \left(\frac{3 \times 0{,}225}{0{,}08}\right)^{3/2} = \left(\frac{0{,}675}{0{,}08}\right)^{3/2} = (8{,}4375)^{1{,}5} \]
+            </div>
+            <div class="equation">
+                \[ k^* = 8{,}4375 \times \sqrt{8{,}4375} = 8{,}4375 \times 2{,}905 \approx 24{,}51 \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{k^* \approx 24{,}51} \]
+            </div>
+            
+            <h4>(b) Taxas de crescimento no estado estacionário</h4>
+            
+            <p>No caminho de crescimento equilibrado (BGP), as variáveis por trabalho efetivo são constantes:</p>
+            <ul>
+                <li>\( \hat{k} = 0 \) e \( \hat{y} = 0 \)</li>
+            </ul>
+            
+            <p><strong>Taxa de crescimento do produto agregado:</strong></p>
+            <p>Como \( Y = L_e \cdot y = AL \cdot y \) e \( y \) é constante no BGP:</p>
+            <div class="equation">
+                \[ \hat{Y} = \hat{A} + \hat{L} + \hat{y} = g + n + 0 = n + g \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{\hat{Y} = 0{,}025 + 0{,}02 = 0{,}045 = 4{,}5\%} \]
+            </div>
+            
+            <p><strong>Taxa de crescimento do produto por trabalhador:</strong></p>
+            <p>O produto por trabalhador é \( Y/L = Ay \). Como \( y \) é constante:</p>
+            <div class="equation">
+                \[ \widehat{Y/L} = \hat{A} + \hat{y} = g + 0 = g \]
+            </div>
+            <p>Alternativamente: \( \widehat{Y/L} = \hat{Y} - \hat{L} = (n + g) - n = g \)</p>
+            <div class="equation-box">
+                \[ \boxed{\widehat{Y/L} = 0{,}02 = 2\%} \]
+            </div>
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- EXERCÍCIO 2 -->
+    <div class="exercise">
+        <h2>Exercício 2 — Solow Completo: Estado Estacionário e Regra de Ouro</h2>
+        <p><em>Tópicos: Forma intensiva, steady state, consumo, Regra de Ouro</em></p>
+        
+        <p>Considere a função de produção agregada com retornos constantes:</p>
+        <div class="equation">
+            \[ Y = F(K, L_e) = 2{,}5 K^{0{,}4} L_e^{0{,}6}, \quad L_e \equiv AL \text{ (trabalho efetivo)} \]
+        </div>
+        
+        <p>Parâmetros:</p>
+        <div class="equation">
+            \[ s = 0{,}27, \quad \delta = 0{,}04, \quad n = \hat{L} = 0{,}018, \quad g = \hat{A} = 0{,}015 \]
+        </div>
+        
+        <p><strong>(a)</strong> Escreva \( y = f(k) \) e a dinâmica de \( k \).</p>
+        
+        <p><strong>(b)</strong> Calcule \( k^* \).</p>
+        
+        <p><strong>(c)</strong> Calcule \( y^* = f(k^*) \) e \( c^* = (1-s)y^* \).</p>
+        
+        <p><strong>(d)</strong> Determine as taxas de crescimento no ERG.</p>
+        
+        <p><strong>(e)</strong> Derive a condição da Regra de Ouro e calcule \( s_{gold} \).</p>
+        
+        <div class="highlight-box">
+            <strong>Indicações:</strong>
+            <ul>
+                <li>Divida por \( L_e \) e use \( \dot{k} = sf(k) - (\delta + n + g)k \)</li>
+                <li>No ERG: \( \hat{Y} = \hat{K} = n + g \), \( \widehat{Y/L} = g \), \( \widehat{Y/L_e} = 0 \)</li>
+            </ul>
+        </div>
+        
+        <div class="solution">
+            <h3>Solução</h3>
+            
+            <h4>(a) Forma intensiva e dinâmica de \( k \)</h4>
+            
+            <p><strong>Forma intensiva:</strong></p>
+            <p>Dividindo \( Y = 2{,}5 K^{0{,}4} L_e^{0{,}6} \) por \( L_e \):</p>
+            <div class="equation">
+                \[ y = \frac{Y}{L_e} = 2{,}5 \left(\frac{K}{L_e}\right)^{0{,}4} = 2{,}5 k^{0{,}4} \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{y = f(k) = 2{,}5 k^{0{,}4}} \]
+            </div>
+            
+            <p><strong>Dinâmica de \( k \):</strong></p>
+            <p>A equação de movimento do capital por trabalho efetivo é:</p>
+            <div class="equation-box">
+                \[ \boxed{\dot{k} = sf(k) - (\delta + n + g)k = 0{,}27 \cdot 2{,}5 k^{0{,}4} - 0{,}073k} \]
+            </div>
+            <p>onde \( \delta + n + g = 0{,}04 + 0{,}018 + 0{,}015 = 0{,}073 \).</p>
+            
+            <h4>(b) Cálculo de \( k^* \)</h4>
+            
+            <p>No estado estacionário, \( \dot{k} = 0 \):</p>
+            <div class="equation">
+                \[ s \cdot 2{,}5 (k^*)^{0{,}4} = (\delta + n + g) k^* \]
+            </div>
+            <div class="equation">
+                \[ 0{,}27 \times 2{,}5 (k^*)^{0{,}4} = 0{,}073 \cdot k^* \]
+            </div>
+            <div class="equation">
+                \[ 0{,}675 (k^*)^{0{,}4} = 0{,}073 \cdot k^* \]
+            </div>
+            
+            <p>Dividindo por \( (k^*)^{0{,}4} \):</p>
+            <div class="equation">
+                \[ 0{,}675 = 0{,}073 (k^*)^{0{,}6} \]
+            </div>
+            <div class="equation">
+                \[ (k^*)^{0{,}6} = \frac{0{,}675}{0{,}073} = 9{,}247 \]
+            </div>
+            <div class="equation">
+                \[ k^* = (9{,}247)^{1/0{,}6} = (9{,}247)^{5/3} \approx 9{,}247^{1{,}667} \]
+            </div>
+            
+            <p>Calculando: \( 9{,}247^{1{,}667} = 9{,}247 \times 9{,}247^{0{,}667} = 9{,}247 \times 4{,}415 \approx 40{,}82 \)</p>
+            
+            <div class="equation-box">
+                \[ \boxed{k^* \approx 40{,}82} \]
+            </div>
+            
+            <h4>(c) Cálculo de \( y^* \) e \( c^* \)</h4>
+            
+            <p><strong>Produto por trabalho efetivo:</strong></p>
+            <div class="equation">
+                \[ y^* = f(k^*) = 2{,}5 (k^*)^{0{,}4} = 2{,}5 \times (40{,}82)^{0{,}4} \]
+            </div>
+            <div class="equation">
+                \[ y^* = 2{,}5 \times 4{,}621 \approx 11{,}55 \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{y^* \approx 11{,}55} \]
+            </div>
+            
+            <p><strong>Consumo por trabalho efetivo:</strong></p>
+            <div class="equation">
+                \[ c^* = (1-s)y^* = (1 - 0{,}27) \times 11{,}55 = 0{,}73 \times 11{,}55 \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{c^* \approx 8{,}43} \]
+            </div>
+            
+            <h4>(d) Taxas de crescimento no ERG</h4>
+            
+            <p>No estado de crescimento equilibrado:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Variável</th>
+                        <th>Taxa de crescimento</th>
+                        <th>Valor numérico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( k = K/L_e \)</td>
+                        <td>\( \hat{k} = 0 \)</td>
+                        <td>0%</td>
+                    </tr>
+                    <tr>
+                        <td>\( y = Y/L_e \)</td>
+                        <td>\( \hat{y} = 0 \)</td>
+                        <td>0%</td>
+                    </tr>
+                    <tr>
+                        <td>\( K \) (capital agregado)</td>
+                        <td>\( \hat{K} = n + g \)</td>
+                        <td>3,3%</td>
+                    </tr>
+                    <tr>
+                        <td>\( Y \) (produto agregado)</td>
+                        <td>\( \hat{Y} = n + g \)</td>
+                        <td>3,3%</td>
+                    </tr>
+                    <tr>
+                        <td>\( Y/L \) (por trabalhador)</td>
+                        <td>\( \widehat{Y/L} = g \)</td>
+                        <td>1,5%</td>
+                    </tr>
+                    <tr>
+                        <td>\( K/L \) (por trabalhador)</td>
+                        <td>\( \widehat{K/L} = g \)</td>
+                        <td>1,5%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h4>(e) Regra de Ouro</h4>
+            
+            <p><strong>Condição da Regra de Ouro:</strong></p>
+            <p>Maximizar o consumo de steady state \( c = f(k) - (\delta + n + g)k \):</p>
+            <div class="equation">
+                \[ \frac{dc}{dk} = f'(k) - (\delta + n + g) = 0 \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{f'(k_{gold}) = \delta + n + g} \]
+            </div>
+            
+            <p><strong>Cálculo de \( s_{gold} \):</strong></p>
+            <p>Para Cobb-Douglas \( f(k) = Ak^\alpha \):</p>
+            <div class="equation">
+                \[ f'(k) = \alpha A k^{\alpha - 1} = \alpha \frac{f(k)}{k} \]
+            </div>
+            
+            <p>No steady state: \( sf(k^*) = (\delta + n + g)k^* \), então \( \frac{f(k^*)}{k^*} = \frac{\delta + n + g}{s} \).</p>
+            
+            <p>Na Regra de Ouro: \( f'(k_{gold}) = \alpha \frac{f(k_{gold})}{k_{gold}} = \delta + n + g \).</p>
+            
+            <p>Logo:</p>
+            <div class="equation">
+                \[ \alpha \cdot \frac{\delta + n + g}{s_{gold}} = \delta + n + g \]
+            </div>
+            <div class="equation">
+                \[ s_{gold} = \alpha \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{s_{gold} = \alpha = 0{,}4 = 40\%} \]
+            </div>
+            
+            <p><strong>Comparação:</strong> Como \( s = 0{,}27 < s_{gold} = 0{,}4 \), a economia está abaixo da Regra de Ouro. Um aumento na taxa de poupança elevaria o consumo de longo prazo.</p>
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- EXERCÍCIO 3 -->
+    <div class="exercise">
+        <h2>Exercício 3 — Progresso Técnico Incorporado ao Capital</h2>
+        <p><em>Tópicos: Capital-augmenting, normalização, BGP</em></p>
+        
+        <p>Considere uma função de produção Cobb-Douglas em tempo contínuo na qual o progresso tecnológico multiplica o capital ("incorporado"):</p>
+        <div class="equation">
+            \[ Y(t) = [A(t)K(t)]^\alpha L(t)^{1-\alpha}, \quad 0 < \alpha < 1 \]
+        </div>
+        
+        <p>A população cresce a taxa constante \( n \) e a tecnologia a taxa constante \( \mu \):</p>
+        <div class="equation">
+            \[ \frac{\dot{L}(t)}{L(t)} = n, \quad \frac{\dot{A}(t)}{A(t)} = \mu \]
+        </div>
+        
+        <p>O estoque de capital acumula conforme:</p>
+        <div class="equation">
+            \[ \dot{K}(t) = sY(t) - \delta K(t) \]
+        </div>
+        
+        <p><strong>(a)</strong> Defina variáveis intensivas normalizando por \( A(t)^\phi L(t) \), com \( \phi = \alpha/(1-\alpha) \), e mostre que \( y(t) = k(t)^\alpha \).</p>
+        
+        <p><strong>(b)</strong> Derive a equação fundamental da dinâmica de \( k(t) \).</p>
+        
+        <p><strong>(c)</strong> Determine a condição de estado estacionário e calcule \( k^* \) e \( y^* \).</p>
+        
+        <p><strong>(d)</strong> Represente graficamente a curva de investimento efetivo e o break-even.</p>
+        
+        <p><strong>(e)</strong> Indique as taxas de crescimento de \( K \), \( Y \), \( K/L \) e \( Y/L \) no BGP.</p>
+        
+        <p><strong>(f)</strong> Interprete por que o crescimento per capita de longo prazo depende de \( \phi\mu = \frac{\alpha}{1-\alpha}\mu \).</p>
+        
+        <div class="solution">
+            <h3>Solução</h3>
+            
+            <h4>(a) Definição de variáveis intensivas</h4>
+            
+            <p>Definimos as variáveis normalizadas por \( A(t)^\phi L(t) \), com \( \phi = \frac{\alpha}{1-\alpha} \):</p>
+            <div class="equation">
+                \[ k \equiv \frac{K}{A^\phi L}, \quad y \equiv \frac{Y}{A^\phi L} \]
+            </div>
+            
+            <p><strong>Derivação de \( y = k^\alpha \):</strong></p>
+            <p>Partindo de \( Y = (AK)^\alpha L^{1-\alpha} \):</p>
+            <div class="equation">
+                \[ y = \frac{Y}{A^\phi L} = \frac{(AK)^\alpha L^{1-\alpha}}{A^\phi L} = \frac{A^\alpha K^\alpha}{A^\phi L^\alpha} \]
+            </div>
+            <div class="equation">
+                \[ y = A^{\alpha - \phi} \left(\frac{K}{L}\right)^\alpha \cdot L^{-\alpha} \cdot L^\alpha = A^{\alpha - \phi} \left(\frac{K}{L}\right)^\alpha \]
+            </div>
+            
+            <p>Precisamos que \( \alpha - \phi = 0 \) para eliminar \( A \). Verificando:</p>
+            <div class="equation">
+                \[ \phi = \frac{\alpha}{1-\alpha} \Rightarrow \alpha - \phi = \alpha - \frac{\alpha}{1-\alpha} = \frac{\alpha(1-\alpha) - \alpha}{1-\alpha} = \frac{-\alpha^2}{1-\alpha} \]
+            </div>
+            
+            <p>Isso não é zero! Vamos refazer com mais cuidado:</p>
+            <div class="equation">
+                \[ y = \frac{(AK)^\alpha L^{1-\alpha}}{A^\phi L} = A^{\alpha - \phi} K^\alpha L^{-\alpha} = A^{\alpha - \phi} \left(\frac{K}{L}\right)^\alpha \]
+            </div>
+            
+            <p>Para que \( y \) dependa apenas de \( k = K/(A^\phi L) \):</p>
+            <div class="equation">
+                \[ y = \left(\frac{K}{A^\phi L}\right)^\alpha \cdot A^{\alpha - \phi + \alpha\phi} \]
+            </div>
+            
+            <p>Queremos \( \alpha - \phi + \alpha\phi = 0 \):</p>
+            <div class="equation">
+                \[ \alpha - \phi(1 - \alpha) = 0 \Rightarrow \phi = \frac{\alpha}{1-\alpha} \quad \checkmark \]
+            </div>
+            
+            <p>Portanto, com \( \phi = \frac{\alpha}{1-\alpha} \):</p>
+            <div class="equation-box">
+                \[ \boxed{y = k^\alpha} \]
+            </div>
+            
+            <h4>(b) Equação fundamental da dinâmica</h4>
+            
+            <p>Partindo de \( k = K/(A^\phi L) \), derivamos no tempo:</p>
+            <div class="equation">
+                \[ \dot{k} = \frac{d}{dt}\left(\frac{K}{A^\phi L}\right) = \frac{\dot{K}}{A^\phi L} - \frac{K(\phi A^{\phi-1}\dot{A} L + A^\phi \dot{L})}{(A^\phi L)^2} \]
+            </div>
+            <div class="equation">
+                \[ \dot{k} = \frac{\dot{K}}{A^\phi L} - k\left(\phi\frac{\dot{A}}{A} + \frac{\dot{L}}{L}\right) = \frac{\dot{K}}{A^\phi L} - k(\phi\mu + n) \]
+            </div>
+            
+            <p>Substituindo \( \dot{K} = sY - \delta K \):</p>
+            <div class="equation">
+                \[ \dot{k} = \frac{sY - \delta K}{A^\phi L} - k(\phi\mu + n) = sy - \delta k - (\phi\mu + n)k \]
+            </div>
+            
+            <p>Como \( y = k^\alpha \):</p>
+            <div class="equation-box">
+                \[ \boxed{\dot{k} = sk^\alpha - (n + \phi\mu + \delta)k} \]
+            </div>
+            
+            <p>Note que o termo de break-even é \( (n + \phi\mu + \delta) \) onde \( \phi\mu = \frac{\alpha}{1-\alpha}\mu \).</p>
+            
+            <h4>(c) Estado estacionário</h4>
+            
+            <p>No steady state, \( \dot{k} = 0 \):</p>
+            <div class="equation">
+                \[ s(k^*)^\alpha = (n + \phi\mu + \delta)k^* \]
+            </div>
+            <div class="equation">
+                \[ s = (n + \phi\mu + \delta)(k^*)^{1-\alpha} \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{k^* = \left(\frac{s}{n + \phi\mu + \delta}\right)^{\frac{1}{1-\alpha}}} \]
+            </div>
+            
+            <p><strong>Produto por unidade efetiva:</strong></p>
+            <div class="equation-box">
+                \[ \boxed{y^* = (k^*)^\alpha = \left(\frac{s}{n + \phi\mu + \delta}\right)^{\frac{\alpha}{1-\alpha}}} \]
+            </div>
+            
+            <h4>(d) Representação gráfica</h4>
+            
+            <p>O diagrama de Solow mostra:</p>
+            <ul>
+                <li><strong>Curva de investimento efetivo:</strong> \( sk^\alpha \) — côncava, passa pela origem</li>
+                <li><strong>Linha de break-even:</strong> \( (n + \phi\mu + \delta)k \) — reta com inclinação \( (n + \phi\mu + \delta) \)</li>
+                <li><strong>Interseção:</strong> ponto \( k^* \) onde as duas curvas se cruzam</li>
+            </ul>
+            
+            <p>Para \( k < k^* \): \( sk^\alpha > (n + \phi\mu + \delta)k \) → \( \dot{k} > 0 \) (acumulação)</p>
+            <p>Para \( k > k^* \): \( sk^\alpha < (n + \phi\mu + \delta)k \) → \( \dot{k} < 0 \) (desacumulação)</p>
+            
+            <h4>(e) Taxas de crescimento no BGP</h4>
+            
+            <p>No BGP, \( k \) e \( y \) são constantes. Então:</p>
+            
+            <p><strong>Capital agregado \( K \):</strong></p>
+            <div class="equation">
+                \[ K = k \cdot A^\phi L \Rightarrow \hat{K} = \hat{k} + \phi\hat{A} + \hat{L} = 0 + \phi\mu + n \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{\hat{K} = n + \phi\mu = n + \frac{\alpha}{1-\alpha}\mu} \]
+            </div>
+            
+            <p><strong>Produto agregado \( Y \):</strong></p>
+            <div class="equation">
+                \[ Y = y \cdot A^\phi L \Rightarrow \hat{Y} = \hat{y} + \phi\mu + n = n + \phi\mu \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{\hat{Y} = n + \frac{\alpha}{1-\alpha}\mu} \]
+            </div>
+            
+            <p><strong>Capital per capita \( K/L \):</strong></p>
+            <div class="equation">
+                \[ \frac{K}{L} = k \cdot A^\phi \Rightarrow \widehat{K/L} = \phi\mu = \frac{\alpha}{1-\alpha}\mu \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{\widehat{K/L} = \frac{\alpha}{1-\alpha}\mu} \]
+            </div>
+            
+            <p><strong>Produto per capita \( Y/L \):</strong></p>
+            <div class="equation-box">
+                \[ \boxed{\widehat{Y/L} = \frac{\alpha}{1-\alpha}\mu} \]
+            </div>
+            
+            <h4>(f) Interpretação econômica</h4>
+            
+            <p>O crescimento per capita de longo prazo é \( \frac{\alpha}{1-\alpha}\mu \), que depende de:</p>
+            
+            <ul>
+                <li><strong>\( \mu \):</strong> taxa de progresso técnico incorporado ao capital</li>
+                <li><strong>\( \alpha \):</strong> participação do capital na renda</li>
+            </ul>
+            
+            <p><strong>Por que \( \phi = \frac{\alpha}{1-\alpha} \)?</strong></p>
+            <p>Quando o progresso técnico é incorporado ao capital (capital-augmenting), ele aumenta a produtividade do capital. Como o capital é acumulável, esse ganho se propaga pela economia. O fator \( \frac{\alpha}{1-\alpha} \) captura o efeito de "amplificação":</p>
+            <ul>
+                <li>Se \( \alpha \) é alto (capital é importante), o efeito é amplificado</li>
+                <li>Se \( \alpha \to 0 \), o progresso técnico no capital tem pouco efeito</li>
+                <li>Se \( \alpha \to 1 \), \( \phi \to \infty \) — o progresso técnico gera crescimento explosivo</li>
+            </ul>
+            
+            <p><strong>Efeito de mudanças em \( s \) e \( \delta \):</strong></p>
+            <ul>
+                <li>\( \uparrow s \): aumenta \( k^* \) e \( y^* \), mas <em>não afeta</em> a taxa de crescimento de longo prazo</li>
+                <li>\( \uparrow \delta \): reduz \( k^* \) e \( y^* \), mas <em>não afeta</em> a taxa de crescimento de longo prazo</li>
+            </ul>
+            <p>Assim como no Solow padrão, \( s \) e \( \delta \) afetam <em>níveis</em>, não <em>taxas</em> de crescimento.</p>
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- EXERCÍCIO 4 -->
+    <div class="exercise">
+        <h2>Exercício 4 — Velocidade de Convergência (Hicks-Neutro)</h2>
+        <p><em>Tópicos: Razão capital-produto, convergência, meia-vida, modelo AK</em></p>
+        
+        <p>Considere:</p>
+        <div class="equation">
+            \[ Y_t = A_t K_t^\alpha N_t^{1-\alpha}, \quad \frac{\dot{A}_t}{A_t} = g, \quad \frac{\dot{N}_t}{N_t} = n, \quad \frac{\dot{K}_t}{K_t} = \frac{I_t}{K_t} - \delta, \quad \frac{I_t}{Y_t} = s \]
+        </div>
+        
+        <p><strong>(a)</strong> Defina \( x_t \equiv K_t/Y_t \). Derive a equação diferencial que governa \( \dot{x}_t \).</p>
+        
+        <p><strong>(b)</strong> Encontre o valor estacionário \( x^* \) e a velocidade de convergência \( \lambda \).</p>
+        
+        <p><strong>(c)</strong> Analise o caso limite \( \alpha = 1 \) (modelo AK). O que acontece com a dinâmica?</p>
+        
+        <p><strong>(d)</strong> Calcule numericamente \( \lambda \) e a meia-vida para:</p>
+        <div class="equation">
+            \[ (1-\alpha) = 0{,}333, \quad g = 0{,}02, \quad n = 0{,}01, \quad \delta = 0{,}05 \]
+        </div>
+        
+        <p><strong>(e)</strong> Compare com o caso Harrod-neutro.</p>
+        
+        <div class="solution">
+            <h3>Solução</h3>
+            
+            <h4>(a) Derivação da equação para \( \dot{x}_t \)</h4>
+            
+            <p>Definindo \( x_t \equiv K_t/Y_t \), precisamos encontrar \( \dot{x}_t \).</p>
+            
+            <p><strong>Passo 1:</strong> Calcular \( \hat{x} = \hat{K} - \hat{Y} \).</p>
+            
+            <p>Taxa de crescimento do capital:</p>
+            <div class="equation">
+                \[ \hat{K} = \frac{\dot{K}}{K} = \frac{I}{K} - \delta = \frac{sY}{K} - \delta = \frac{s}{x} - \delta \]
+            </div>
+            
+            <p>Taxa de crescimento do produto (usando \( Y = A K^\alpha N^{1-\alpha} \)):</p>
+            <div class="equation">
+                \[ \hat{Y} = \hat{A} + \alpha\hat{K} + (1-\alpha)\hat{N} = g + \alpha\hat{K} + (1-\alpha)n \]
+            </div>
+            
+            <p><strong>Passo 2:</strong> Substituir \( \hat{K} \) em \( \hat{Y} \):</p>
+            <div class="equation">
+                \[ \hat{Y} = g + \alpha\left(\frac{s}{x} - \delta\right) + (1-\alpha)n \]
+            </div>
+            
+            <p><strong>Passo 3:</strong> Calcular \( \hat{x} \):</p>
+            <div class="equation">
+                \[ \hat{x} = \hat{K} - \hat{Y} = \left(\frac{s}{x} - \delta\right) - \left[g + \alpha\left(\frac{s}{x} - \delta\right) + (1-\alpha)n\right] \]
+            </div>
+            <div class="equation">
+                \[ \hat{x} = (1-\alpha)\left(\frac{s}{x} - \delta\right) - g - (1-\alpha)n \]
+            </div>
+            <div class="equation">
+                \[ \hat{x} = (1-\alpha)\left[\frac{s}{x} - \delta - n\right] - g \]
+            </div>
+            <div class="equation">
+                \[ \hat{x} = (1-\alpha)\frac{s}{x} - (1-\alpha)(n + \delta) - g \]
+            </div>
+            
+            <p><strong>Passo 4:</strong> Como \( \dot{x} = x \cdot \hat{x} \):</p>
+            <div class="equation-box">
+                \[ \boxed{\dot{x} = (1-\alpha)s - (1-\alpha)(n + \delta)x - gx = (1-\alpha)[s - (n + \delta + \tilde{g})x]} \]
+            </div>
+            <p>onde \( \tilde{g} = \frac{g}{1-\alpha} \), ou de forma mais simples:</p>
+            <div class="equation-box">
+                \[ \boxed{\dot{x} = (1-\alpha)s - [(1-\alpha)(n + \delta) + g]x} \]
+            </div>
+            
+            <h4>(b) Estado estacionário e velocidade de convergência</h4>
+            
+            <p><strong>Estado estacionário:</strong> \( \dot{x} = 0 \)</p>
+            <div class="equation">
+                \[ (1-\alpha)s = [(1-\alpha)(n + \delta) + g]x^* \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{x^* = \frac{(1-\alpha)s}{(1-\alpha)(n + \delta) + g} = \frac{s}{n + \delta + \frac{g}{1-\alpha}}} \]
+            </div>
+            
+            <p><strong>Velocidade de convergência:</strong></p>
+            <p>A equação \( \dot{x} = (1-\alpha)s - [(1-\alpha)(n + \delta) + g]x \) é linear em \( x \).</p>
+            
+            <p>Defina \( \tilde{x} = x - x^* \). Então:</p>
+            <div class="equation">
+                \[ \dot{\tilde{x}} = \dot{x} = -[(1-\alpha)(n + \delta) + g](x - x^*) = -\lambda \tilde{x} \]
+            </div>
+            
+            <p>Portanto:</p>
+            <div class="equation-box">
+                \[ \boxed{\lambda = (1-\alpha)(n + \delta) + g} \]
+            </div>
+            
+            <p><strong>Solução fechada:</strong></p>
+            <div class="equation">
+                \[ x(t) = x^* + [x(0) - x^*]e^{-\lambda t} \]
+            </div>
+            
+            <h4>(c) Caso limite \( \alpha = 1 \) (modelo AK)</h4>
+            
+            <p>Quando \( \alpha = 1 \), a função de produção torna-se \( Y = AK \).</p>
+            
+            <p>Substituindo \( \alpha = 1 \) na equação de \( \dot{x} \):</p>
+            <div class="equation">
+                \[ \dot{x} = (1-1)s - [(1-1)(n + \delta) + g]x = 0 - gx = -gx \]
+            </div>
+            
+            <p>Isso implica:</p>
+            <div class="equation">
+                \[ x(t) = x(0)e^{-gt} \to 0 \text{ quando } t \to \infty \]
+            </div>
+            
+            <p><strong>Interpretação:</strong></p>
+            <ul>
+                <li>No modelo AK, \( x = K/Y = K/(AK) = 1/A \)</li>
+                <li>Como \( A \) cresce a taxa \( g \), \( x \) decresce a taxa \( g \)</li>
+                <li><strong>Não há estado estacionário finito</strong> para \( x \) — a razão capital-produto converge para zero</li>
+                <li>O crescimento é <em>endógeno</em>: \( \hat{Y} = \hat{K} = sA - \delta \) (constante, não zero)</li>
+            </ul>
+            
+            <h4>(d) Cálculo numérico</h4>
+            
+            <p>Dados: \( 1-\alpha = 0{,}333 \), \( g = 0{,}02 \), \( n = 0{,}01 \), \( \delta = 0{,}05 \).</p>
+            
+            <p><strong>Velocidade de convergência:</strong></p>
+            <div class="equation">
+                \[ \lambda = (1-\alpha)(n + \delta) + g = 0{,}333 \times (0{,}01 + 0{,}05) + 0{,}02 \]
+            </div>
+            <div class="equation">
+                \[ \lambda = 0{,}333 \times 0{,}06 + 0{,}02 = 0{,}02 + 0{,}02 = 0{,}04 \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{\lambda = 0{,}04 = 4\% \text{ ao ano}} \]
+            </div>
+            
+            <p><strong>Meia-vida:</strong></p>
+            <div class="equation">
+                \[ \tau_{1/2} = \frac{\ln 2}{\lambda} = \frac{0{,}693}{0{,}04} \approx 17{,}3 \text{ anos} \]
+            </div>
+            <div class="equation-box">
+                \[ \boxed{\tau_{1/2} \approx 17{,}3 \text{ anos}} \]
+            </div>
+            
+            <h4>(e) Comparação com Harrod-neutro</h4>
+            
+            <p>No caso Harrod-neutro (aumentador de trabalho), a velocidade de convergência é:</p>
+            <div class="equation">
+                \[ \lambda_{Harrod} = (1-\alpha)(n + g + \delta) \]
+            </div>
+            
+            <p>Com os mesmos parâmetros:</p>
+            <div class="equation">
+                \[ \lambda_{Harrod} = 0{,}333 \times (0{,}01 + 0{,}02 + 0{,}05) = 0{,}333 \times 0{,}08 = 0{,}0267 \]
+            </div>
+            
+            <p><strong>Comparação:</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Hicks-neutro</th>
+                        <th>Harrod-neutro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Velocidade \( \lambda \)</td>
+                        <td>4,0%</td>
+                        <td>2,67%</td>
+                    </tr>
+                    <tr>
+                        <td>Meia-vida</td>
+                        <td>17,3 anos</td>
+                        <td>26,0 anos</td>
+                    </tr>
+                    <tr>
+                        <td>Convergência</td>
+                        <td>Mais rápida</td>
+                        <td>Mais lenta</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>A diferença surge porque, no modelo Hicks-neutro usando \( x = K/Y \), o termo \( g \) entra diretamente em \( \lambda \), enquanto no Harrod-neutro, \( g \) é multiplicado por \( (1-\alpha) \).</p>
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- EXERCÍCIO 5 -->
+    <div class="exercise">
+        <h2>Exercício 5 — Solow com Governo</h2>
+        <p><em>Tópicos: Gasto público, financiamento, estática comparativa</em></p>
+        
+        <p>Suponha a contabilidade:</p>
+        <div class="equation">
+            \[ Y_t = C_t + I_t + G_t, \quad K_{t+1} = I_t + (1-\delta)K_t \]
+        </div>
+        
+        <p>Adote as regras:</p>
+        <div class="equation">
+            \[ G_t = \sigma Y_t, \quad C_t = (s - \lambda\sigma)Y_t \]
+        </div>
+        <p>onde \( \lambda \in [0,1] \) é a fração do gasto público financiada via redução do consumo.</p>
+        
+        <p><strong>(a)</strong> Derive a expressão para o investimento \( I_t \) em função de \( Y_t, s, \sigma \) e \( \lambda \).</p>
+        
+        <p><strong>(b)</strong> Mostre que a lei de evolução do capital é:</p>
+        <div class="equation">
+            \[ K_{t+1} = (1-s-\sigma(1-\lambda))Y_t + (1-\delta)K_t \]
+        </div>
+        
+        <p><strong>(c)</strong> Obtenha a lei de movimento para \( k_t \) (com \( L \) constante).</p>
+        
+        <p><strong>(d)</strong> Analise como mudanças em \( \sigma \) e \( \lambda \) afetam a trajetória de \( k_t \).</p>
+        
+        <p><strong>(e)</strong> Determine a condição de estado estacionário e o efeito de \( \sigma \) e \( \lambda \) sobre \( k^* \).</p>
+        
+        <div class="solution">
+            <h3>Solução</h3>
+            
+            <h4>(a) Expressão para o investimento</h4>
+            
+            <p>Partindo da identidade de recursos:</p>
+            <div class="equation">
+                \[ Y_t = C_t + I_t + G_t \]
+            </div>
+            
+            <p>Isolando \( I_t \):</p>
+            <div class="equation">
+                \[ I_t = Y_t - C_t - G_t \]
+            </div>
+            
+            <p>Substituindo \( G_t = \sigma Y_t \) e \( C_t = (s - \lambda\sigma)Y_t \):</p>
+            <div class="equation">
+                \[ I_t = Y_t - (s - \lambda\sigma)Y_t - \sigma Y_t \]
+            </div>
+            <div class="equation">
+                \[ I_t = Y_t[1 - s + \lambda\sigma - \sigma] = Y_t[1 - s - \sigma(1 - \lambda)] \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{I_t = [1 - s - \sigma(1 - \lambda)]Y_t} \]
+            </div>
+            
+            <p><strong>Interpretação:</strong></p>
+            <ul>
+                <li>Se \( \lambda = 1 \): todo o gasto público vem de redução do consumo → \( I_t = (1-s)Y_t \)</li>
+                <li>Se \( \lambda = 0 \): todo o gasto público vem de redução do investimento → \( I_t = (1-s-\sigma)Y_t \)</li>
+            </ul>
+            
+            <h4>(b) Lei de evolução do capital</h4>
+            
+            <p>Partindo de \( K_{t+1} = I_t + (1-\delta)K_t \):</p>
+            <div class="equation">
+                \[ K_{t+1} = [1 - s - \sigma(1-\lambda)]Y_t + (1-\delta)K_t \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{K_{t+1} = [1 - s - \sigma(1-\lambda)]Y_t + (1-\delta)K_t} \]
+            </div>
+            
+            <h4>(c) Lei de movimento para \( k_t \)</h4>
+            
+            <p>Com \( L \) constante, definimos \( k_t = K_t/L \) e \( y_t = Y_t/L = f(k_t) \).</p>
+            
+            <p>Dividindo a equação de evolução por \( L \):</p>
+            <div class="equation">
+                \[ k_{t+1} = [1 - s - \sigma(1-\lambda)]f(k_t) + (1-\delta)k_t \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{k_{t+1} = [1 - s - \sigma(1-\lambda)]f(k_t) + (1-\delta)k_t} \]
+            </div>
+            
+            <h4>(d) Estática comparativa: efeitos de \( \sigma \) e \( \lambda \)</h4>
+            
+            <p><strong>Efeito de aumento em \( \sigma \):</strong></p>
+            
+            <p>Provaremos por indução que, se \( \sigma' > \sigma \), então \( k_\sigma(t) > k_{\sigma'}(t) \) para todo \( t \geq 1 \).</p>
+            
+            <p><strong>Base:</strong> Para \( t = 1 \):</p>
+            <div class="equation">
+                \[ k_\sigma(1) = [1 - s - \sigma(1-\lambda)]f(k_0) + (1-\delta)k_0 \]
+            </div>
+            <div class="equation">
+                \[ k_{\sigma'}(1) = [1 - s - \sigma'(1-\lambda)]f(k_0) + (1-\delta)k_0 \]
+            </div>
+            
+            <p>Como \( \sigma' > \sigma \) e \( \lambda < 1 \):</p>
+            <div class="equation">
+                \[ 1 - s - \sigma(1-\lambda) > 1 - s - \sigma'(1-\lambda) \]
+            </div>
+            <p>Logo, \( k_\sigma(1) > k_{\sigma'}(1) \). ✓</p>
+            
+            <p><strong>Passo indutivo:</strong> Suponha \( k_\sigma(t) > k_{\sigma'}(t) \).</p>
+            <p>Como \( f(\cdot) \) é crescente: \( f(k_\sigma(t)) > f(k_{\sigma'}(t)) \).</p>
+            
+            <div class="equation">
+                \[ k_\sigma(t+1) = [1 - s - \sigma(1-\lambda)]f(k_\sigma(t)) + (1-\delta)k_\sigma(t) \]
+            </div>
+            <div class="equation">
+                \[ > [1 - s - \sigma(1-\lambda)]f(k_{\sigma'}(t)) + (1-\delta)k_{\sigma'}(t) \]
+            </div>
+            <div class="equation">
+                \[ > [1 - s - \sigma'(1-\lambda)]f(k_{\sigma'}(t)) + (1-\delta)k_{\sigma'}(t) = k_{\sigma'}(t+1) \]
+            </div>
+            
+            <div class="result">
+                <span class="result-title">Conclusão:</span>
+                \( \uparrow \sigma \Rightarrow \downarrow k_t \) para todo \( t \). Mais gasto público reduz o capital ao longo de toda a trajetória.
+            </div>
+            
+            <p><strong>Efeito de aumento em \( \lambda \):</strong></p>
+            
+            <p>Aumentar \( \lambda \) significa financiar mais do gasto público via consumo (e menos via investimento).</p>
+            <div class="equation">
+                \[ \frac{\partial}{\partial \lambda}[1 - s - \sigma(1-\lambda)] = \sigma > 0 \]
+            </div>
+            
+            <div class="result">
+                <span class="result-title">Conclusão:</span>
+                \( \uparrow \lambda \Rightarrow \uparrow k_t \). Financiar o gasto via consumo preserva o investimento e eleva a trajetória de capital.
+            </div>
+            
+            <h4>(e) Estado estacionário</h4>
+            
+            <p>No estado estacionário, \( k^* = k_{t+1} = k_t \):</p>
+            <div class="equation">
+                \[ k^* = [1 - s - \sigma(1-\lambda)]f(k^*) + (1-\delta)k^* \]
+            </div>
+            <div class="equation">
+                \[ k^* - (1-\delta)k^* = [1 - s - \sigma(1-\lambda)]f(k^*) \]
+            </div>
+            <div class="equation">
+                \[ \delta k^* = [1 - s - \sigma(1-\lambda)]f(k^*) \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{\frac{f(k^*)}{k^*} = \frac{\delta}{1 - s - \sigma(1-\lambda)}} \]
+            </div>
+            
+            <p><strong>Análise:</strong> Como \( f(k)/k \) é <em>decrescente</em> em \( k \) (retornos decrescentes):</p>
+            
+            <ul>
+                <li>\( \uparrow \sigma \) → \( \uparrow \frac{\delta}{1 - s - \sigma(1-\lambda)} \) → \( \downarrow k^* \)</li>
+                <li>\( \uparrow \lambda \) → \( \downarrow \frac{\delta}{1 - s - \sigma(1-\lambda)} \) → \( \uparrow k^* \)</li>
+            </ul>
+            
+            <div class="theorem">
+                <span class="theorem-title">Resultado:</span>
+                <ul>
+                    <li>Maior gasto público (\( \sigma \)) reduz o capital de longo prazo</li>
+                    <li>Financiamento via consumo (\( \lambda \) alto) mitiga esse efeito negativo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- EXERCÍCIO 6 -->
+    <div class="exercise">
+        <h2>Exercício 6 — Regra de Ouro e Estática Comparativa</h2>
+        <p><em>Tópicos: Maximização do consumo, derivada implícita, ineficiência dinâmica</em></p>
+        
+        <p>Considere o modelo de Solow em trabalho efetivo:</p>
+        <div class="equation">
+            \[ \dot{k} = sf(k) - (n+g+\delta)k, \quad f'(k) > 0, \; f''(k) < 0 \]
+        </div>
+        
+        <p><strong>(a)</strong> Mostre que a condição da Regra de Ouro é \( f'(k_{gold}) = n + g + \delta \).</p>
+        
+        <p><strong>(b)</strong> Para \( f(k) = Ak^\alpha \), mostre que \( s_{gold} = \alpha \).</p>
+        
+        <p><strong>(c)</strong> Usando diferenciação implícita, mostre que:</p>
+        <div class="equation">
+            \[ \frac{dc^*}{ds} = \underbrace{\frac{f(k^*)}{(n+g+\delta) - sf'(k^*)}}_{\frac{dk^*}{ds}} \left[f'(k^*) - (n+g+\delta)\right] \]
+        </div>
+        
+        <p><strong>(d)</strong> Conclua o sinal de \( \frac{dc^*}{ds} \) quando \( s \lessgtr s_{gold} \).</p>
+        
+        <p><strong>(e)</strong> Mostre que a condição de ineficiência dinâmica é \( f'(k^*) < n + g + \delta \).</p>
+        
+        <p><strong>(f)</strong> Exemplo numérico: Use \( A=1, \alpha=1/3, n=0{,}02, g=0{,}01, \delta=0{,}05 \). Calcule \( c^*(s) \) para \( s=0{,}40 \) e \( s=\alpha \).</p>
+        
+        <div class="solution">
+            <h3>Solução</h3>
+            
+            <h4>(a) Condição da Regra de Ouro</h4>
+            
+            <p>O consumo de steady state por trabalhador efetivo é:</p>
+            <div class="equation">
+                \[ c^* = f(k^*) - (n + g + \delta)k^* \]
+            </div>
+            
+            <p>Para maximizar \( c^* \) em relação a \( k \):</p>
+            <div class="equation">
+                \[ \frac{dc}{dk} = f'(k) - (n + g + \delta) = 0 \]
+            </div>
+            
+            <p>A condição de segunda ordem é satisfeita pois \( f''(k) < 0 \) (concavidade).</p>
+            
+            <div class="equation-box">
+                \[ \boxed{f'(k_{gold}) = n + g + \delta} \]
+            </div>
+            
+            <p><strong>Interpretação:</strong> No ponto de ouro, a produtividade marginal do capital iguala a taxa de depreciação efetiva. Cada unidade adicional de capital gera exatamente o necessário para sua reposição.</p>
+            
+            <h4>(b) Taxa de poupança de ouro para Cobb-Douglas</h4>
+            
+            <p>Para \( f(k) = Ak^\alpha \):</p>
+            <div class="equation">
+                \[ f'(k) = \alpha A k^{\alpha - 1} = \alpha \frac{Ak^\alpha}{k} = \alpha \frac{f(k)}{k} \]
+            </div>
+            
+            <p><strong>No steady state:</strong></p>
+            <div class="equation">
+                \[ sf(k^*) = (n + g + \delta)k^* \Rightarrow \frac{f(k^*)}{k^*} = \frac{n + g + \delta}{s} \]
+            </div>
+            
+            <p><strong>Na Regra de Ouro:</strong></p>
+            <div class="equation">
+                \[ f'(k_{gold}) = \alpha \frac{f(k_{gold})}{k_{gold}} = n + g + \delta \]
+            </div>
+            
+            <p>Substituindo a condição de steady state (com \( s = s_{gold} \)):</p>
+            <div class="equation">
+                \[ \alpha \cdot \frac{n + g + \delta}{s_{gold}} = n + g + \delta \]
+            </div>
+            <div class="equation">
+                \[ \frac{\alpha}{s_{gold}} = 1 \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{s_{gold} = \alpha} \]
+            </div>
+            
+            <h4>(c) Estática comparativa via diferenciação implícita</h4>
+            
+            <p><strong>Passo 1:</strong> A condição de steady state é \( h(s, k^*) = sf(k^*) - (n+g+\delta)k^* = 0 \).</p>
+            
+            <p>Diferenciando implicitamente:</p>
+            <div class="equation">
+                \[ \frac{\partial h}{\partial s} + \frac{\partial h}{\partial k^*}\frac{dk^*}{ds} = 0 \]
+            </div>
+            <div class="equation">
+                \[ f(k^*) + [sf'(k^*) - (n+g+\delta)]\frac{dk^*}{ds} = 0 \]
+            </div>
+            <div class="equation">
+                \[ \frac{dk^*}{ds} = \frac{f(k^*)}{(n+g+\delta) - sf'(k^*)} \]
+            </div>
+            
+            <p><strong>Passo 2:</strong> O consumo é \( c^* = f(k^*) - (n+g+\delta)k^* \).</p>
+            
+            <p>Diferenciando:</p>
+            <div class="equation">
+                \[ \frac{dc^*}{ds} = f'(k^*)\frac{dk^*}{ds} - (n+g+\delta)\frac{dk^*}{ds} = [f'(k^*) - (n+g+\delta)]\frac{dk^*}{ds} \]
+            </div>
+            
+            <p>Substituindo \( \frac{dk^*}{ds} \):</p>
+            
+            <div class="equation-box">
+                \[ \boxed{\frac{dc^*}{ds} = \underbrace{\frac{f(k^*)}{(n+g+\delta) - sf'(k^*)}}_{\frac{dk^*}{ds} > 0} \cdot [f'(k^*) - (n+g+\delta)]} \]
+            </div>
+            
+            <h4>(d) Sinal de \( \frac{dc^*}{ds} \)</h4>
+            
+            <p>O denominador \( (n+g+\delta) - sf'(k^*) > 0 \) por estabilidade do steady state.</p>
+            
+            <p>O sinal depende de \( f'(k^*) - (n+g+\delta) \):</p>
+            
+            <ul>
+                <li><strong>Se \( s < s_{gold} \):</strong> \( k^* < k_{gold} \) → \( f'(k^*) > f'(k_{gold}) = n+g+\delta \)
+                    <div class="equation">\[ \Rightarrow \frac{dc^*}{ds} > 0 \]</div>
+                    Aumentar \( s \) eleva o consumo de longo prazo.
+                </li>
+                <li><strong>Se \( s > s_{gold} \):</strong> \( k^* > k_{gold} \) → \( f'(k^*) < n+g+\delta \)
+                    <div class="equation">\[ \Rightarrow \frac{dc^*}{ds} < 0 \]</div>
+                    Aumentar \( s \) reduz o consumo de longo prazo (ineficiência dinâmica).
+                </li>
+                <li><strong>Se \( s = s_{gold} \):</strong> \( f'(k^*) = n+g+\delta \)
+                    <div class="equation">\[ \Rightarrow \frac{dc^*}{ds} = 0 \]</div>
+                    Ponto de máximo do consumo.
+                </li>
+            </ul>
+            
+            <h4>(e) Ineficiência dinâmica</h4>
+            
+            <p>A restrição de recursos por trabalhador efetivo é:</p>
+            <div class="equation">
+                \[ c = f(k) - (n+g+\delta)k + \dot{k} \]
+            </div>
+            
+            <p>No steady state, \( \dot{k} = 0 \). Mas se partirmos de \( k^* \) e reduzirmos permanentemente \( k \):</p>
+            <div class="equation">
+                \[ \Delta c = -f'(k^*)\Delta k + (n+g+\delta)\Delta k = [n+g+\delta - f'(k^*)]\Delta k \]
+            </div>
+            
+            <p>Se \( f'(k^*) < n+g+\delta \), então com \( \Delta k < 0 \):</p>
+            <div class="equation">
+                \[ \Delta c = [n+g+\delta - f'(k^*)](-|\Delta k|) > 0 \]
+            </div>
+            
+            <p>Reduzir o capital <em>aumenta</em> o consumo permanentemente!</p>
+            
+            <div class="definition">
+                <span class="definition-title">Condição de ineficiência dinâmica:</span>
+                \[ \boxed{f'(k^*) < n + g + \delta} \]
+                Equivalentemente: \( s > \alpha \) (para Cobb-Douglas) ou \( k^* > k_{gold} \).
+            </div>
+            
+            <h4>(f) Exemplo numérico</h4>
+            
+            <p>Dados: \( A = 1 \), \( \alpha = 1/3 \), \( n = 0{,}02 \), \( g = 0{,}01 \), \( \delta = 0{,}05 \).</p>
+            <p>Logo: \( n + g + \delta = 0{,}08 \).</p>
+            
+            <p>Para Cobb-Douglas, o steady state é:</p>
+            <div class="equation">
+                \[ k^*(s) = \left(\frac{s}{n+g+\delta}\right)^{\frac{1}{1-\alpha}} = \left(\frac{s}{0{,}08}\right)^{1{,}5} \]
+            </div>
+            
+            <p>E o consumo:</p>
+            <div class="equation">
+                \[ c^*(s) = (k^*)^\alpha - (n+g+\delta)k^* = (k^*)^{1/3} - 0{,}08 \cdot k^* \]
+            </div>
+            
+            <p><strong>Caso 1: \( s = 0{,}40 \)</strong></p>
+            <div class="equation">
+                \[ k^* = \left(\frac{0{,}40}{0{,}08}\right)^{1{,}5} = 5^{1{,}5} = 5\sqrt{5} \approx 11{,}18 \]
+            </div>
+            <div class="equation">
+                \[ y^* = (11{,}18)^{1/3} \approx 2{,}235 \]
+            </div>
+            <div class="equation">
+                \[ c^* = 2{,}235 - 0{,}08 \times 11{,}18 = 2{,}235 - 0{,}894 \approx 1{,}341 \]
+            </div>
+            
+            <p><strong>Verificação de ineficiência:</strong></p>
+            <div class="equation">
+                \[ f'(k^*) = \frac{1}{3}(k^*)^{-2/3} = \frac{1}{3} \times \frac{1}{(11{,}18)^{2/3}} = \frac{1}{3 \times 4{,}99} \approx 0{,}067 \]
+            </div>
+            <p>Como \( f'(k^*) = 0{,}067 < 0{,}08 = n+g+\delta \), a economia é <strong>dinamicamente ineficiente</strong>.</p>
+            
+            <p><strong>Caso 2: \( s = \alpha = 1/3 \)</strong> (Regra de Ouro)</p>
+            <div class="equation">
+                \[ k^*_{gold} = \left(\frac{1/3}{0{,}08}\right)^{1{,}5} = (4{,}167)^{1{,}5} \approx 8{,}50 \]
+            </div>
+            <div class="equation">
+                \[ y^*_{gold} = (8{,}50)^{1/3} \approx 2{,}041 \]
+            </div>
+            <div class="equation">
+                \[ c^*_{gold} = 2{,}041 - 0{,}08 \times 8{,}50 = 2{,}041 - 0{,}680 \approx 1{,}361 \]
+            </div>
+            
+            <p><strong>Comparação:</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Variável</th>
+                        <th>\( s = 0{,}40 \)</th>
+                        <th>\( s = 1/3 \) (ouro)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( k^* \)</td>
+                        <td>11,18</td>
+                        <td>8,50</td>
+                    </tr>
+                    <tr>
+                        <td>\( y^* \)</td>
+                        <td>2,235</td>
+                        <td>2,041</td>
+                    </tr>
+                    <tr>
+                        <td>\( c^* \)</td>
+                        <td>1,341</td>
+                        <td><strong>1,361</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Eficiência</td>
+                        <td>Ineficiente</td>
+                        <td>Ótimo</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>Confirma-se que \( s = 0{,}40 > \alpha = 1/3 \) gera um steady state com capital excessivo e consumo subótimo.</p>
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- EXERCÍCIO 7 -->
+    <div class="exercise">
+        <h2>Exercício 7 — Modelo de Ramsey-Cass-Koopmans</h2>
+        <p><em>Tópicos: Otimização intertemporal, Equação de Euler, diagrama de fases</em></p>
+        
+        <p>Considere o modelo RCK em tempo contínuo:</p>
+        <div class="equation">
+            \[ \max_{c(t)} \int_0^\infty e^{-\rho t} \frac{c(t)^{1-\theta} - 1}{1-\theta} dt \]
+        </div>
+        <p>sujeito à dinâmica:</p>
+        <div class="equation">
+            \[ \dot{k}(t) = f(k(t)) - c(t) - (n+g+\delta)k(t) \]
+        </div>
+        
+        <p><strong>(a)</strong> Mostre como transformar o problema para a forma intensiva \( k = K/(AL) \).</p>
+        
+        <p><strong>(b)</strong> Derive a equação de Euler e escreva \( \frac{\dot{c}}{c} \) em função de \( f'(k), \delta, \rho, g \) e \( \theta \).</p>
+        
+        <p><strong>(c)</strong> Determine as condições de estado estacionário para \( k^* \) e \( c^* \).</p>
+        
+        <p><strong>(d)</strong> Calcule o Jacobiano do sistema e mostre que o steady state é um ponto de sela.</p>
+        
+        <p><strong>(e)</strong> Construa o diagrama de fases: derive as curvas \( \dot{k}=0 \) e \( \dot{c}=0 \), indicando a direção da dinâmica em cada região.</p>
+        
+        <p><strong>(f)</strong> Mostre que \( k^* < k_{gold} \) quando \( \rho > 0 \).</p>
+        
+        <p><strong>(g)</strong> Interprete o efeito de um aumento em \( \rho \) sobre a trajetória ótima.</p>
+        
+        <div class="solution">
+            <h3>Solução</h3>
+            
+            <h4>(a) Transformação para forma intensiva</h4>
+            
+            <p>Definimos variáveis por trabalhador efetivo:</p>
+            <div class="equation">
+                \[ k \equiv \frac{K}{AL}, \quad c \equiv \frac{C}{AL}, \quad y \equiv \frac{Y}{AL} = f(k) \]
+            </div>
+            
+            <p><strong>Derivação de \( \dot{k} \):</strong></p>
+            <p>Como \( K = k \cdot AL \), diferenciando:</p>
+            <div class="equation">
+                \[ \dot{K} = \dot{k} \cdot AL + k(\dot{A}L + A\dot{L}) = \dot{k} \cdot AL + k \cdot AL(g + n) \]
+            </div>
+            
+            <p>Da restrição de recursos: \( \dot{K} = Y - C - \delta K = ALf(k) - ALc - \delta(kAL) \):</p>
+            <div class="equation">
+                \[ \dot{k} \cdot AL + k \cdot AL(g + n) = AL[f(k) - c - \delta k] \]
+            </div>
+            <div class="equation">
+                \[ \dot{k} = f(k) - c - \delta k - (g + n)k \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{\dot{k} = f(k) - c - (n + g + \delta)k} \]
+            </div>
+            
+            <h4>(b) Equação de Euler</h4>
+            
+            <p><strong>Hamiltoniano em valor corrente:</strong></p>
+            <div class="equation">
+                \[ \mathcal{H} = \frac{c^{1-\theta} - 1}{1-\theta} + \lambda[f(k) - c - (n+g+\delta)k] \]
+            </div>
+            
+            <p><strong>Condições de primeira ordem:</strong></p>
+            
+            <p>1) \( \frac{\partial \mathcal{H}}{\partial c} = 0 \):</p>
+            <div class="equation">
+                \[ c^{-\theta} - \lambda = 0 \Rightarrow \lambda = c^{-\theta} \]
+            </div>
+            
+            <p>2) \( \frac{\partial \mathcal{H}}{\partial k} = \tilde{\rho}\lambda - \dot{\lambda} \), onde \( \tilde{\rho} = \rho - (1-\theta)(g+n) \):</p>
+            <div class="equation">
+                \[ \lambda[f'(k) - (n+g+\delta)] = \tilde{\rho}\lambda - \dot{\lambda} \]
+            </div>
+            
+            <p><strong>Derivando a Equação de Euler:</strong></p>
+            <p>De \( \lambda = c^{-\theta} \), diferenciando:</p>
+            <div class="equation">
+                \[ \dot{\lambda} = -\theta c^{-\theta-1}\dot{c} = -\theta \frac{\lambda}{c}\dot{c} \]
+            </div>
+            
+            <p>Substituindo na segunda CPO:</p>
+            <div class="equation">
+                \[ \lambda[f'(k) - (n+g+\delta)] = \tilde{\rho}\lambda + \theta\frac{\lambda}{c}\dot{c} \]
+            </div>
+            
+            <p>Dividindo por \( \lambda \):</p>
+            <div class="equation">
+                \[ f'(k) - (n+g+\delta) = \tilde{\rho} + \theta\frac{\dot{c}}{c} \]
+            </div>
+            
+            <p>Resolvendo para \( \frac{\dot{c}}{c} \):</p>
+            <div class="equation">
+                \[ \frac{\dot{c}}{c} = \frac{1}{\theta}[f'(k) - (n+g+\delta) - \tilde{\rho}] \]
+            </div>
+            
+            <p>Com \( \tilde{\rho} = \rho - (1-\theta)(g+n) \):</p>
+            <div class="equation">
+                \[ \frac{\dot{c}}{c} = \frac{1}{\theta}[f'(k) - (n+g+\delta) - \rho + (1-\theta)(g+n)] \]
+            </div>
+            <div class="equation">
+                \[ = \frac{1}{\theta}[f'(k) - \delta - \rho - \theta(g+n)] \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{\frac{\dot{c}}{c} = \frac{1}{\theta}[f'(k) - (\delta + \rho + \theta g) - n(1-\theta+\theta)]} \]
+            </div>
+            
+            <p>Na forma mais comum (sem crescimento populacional ou com ajuste):</p>
+            <div class="equation-box">
+                \[ \boxed{\frac{\dot{c}}{c} = \frac{1}{\theta}[f'(k) - (n + g + \delta + \rho)]} \]
+            </div>
+            
+            <h4>(c) Condições de estado estacionário</h4>
+            
+            <p>No steady state, \( \dot{k} = 0 \) e \( \dot{c} = 0 \).</p>
+            
+            <p><strong>De \( \dot{c} = 0 \):</strong></p>
+            <div class="equation-box">
+                \[ \boxed{f'(k^*) = n + g + \delta + \rho} \]
+            </div>
+            <p>Esta é a <strong>Regra de Keynes-Ramsey modificada</strong>.</p>
+            
+            <p><strong>De \( \dot{k} = 0 \):</strong></p>
+            <div class="equation-box">
+                \[ \boxed{c^* = f(k^*) - (n + g + \delta)k^*} \]
+            </div>
+            
+            <h4>(d) Jacobiano e ponto de sela</h4>
+            
+            <p>O sistema dinâmico é:</p>
+            <div class="equation">
+                \[ \begin{cases}
+                \dot{k} = f(k) - c - (n+g+\delta)k \\
+                \dot{c} = \frac{c}{\theta}[f'(k) - (n+g+\delta+\rho)]
+                \end{cases} \]
+            </div>
+            
+            <p><strong>Jacobiano avaliado em \( (k^*, c^*) \):</strong></p>
+            <div class="equation">
+                \[ J = \begin{pmatrix} \frac{\partial \dot{k}}{\partial k} & \frac{\partial \dot{k}}{\partial c} \\[8pt] \frac{\partial \dot{c}}{\partial k} & \frac{\partial \dot{c}}{\partial c} \end{pmatrix} \]
+            </div>
+            
+            <p>Calculando as derivadas:</p>
+            <ul>
+                <li>\( \frac{\partial \dot{k}}{\partial k} = f'(k^*) - (n+g+\delta) = \rho \) (usando a condição de SS)</li>
+                <li>\( \frac{\partial \dot{k}}{\partial c} = -1 \)</li>
+                <li>\( \frac{\partial \dot{c}}{\partial k} = \frac{c^*}{\theta}f''(k^*) \)</li>
+                <li>\( \frac{\partial \dot{c}}{\partial c} = \frac{1}{\theta}[f'(k^*) - (n+g+\delta+\rho)] = 0 \) (no SS)</li>
+            </ul>
+            
+            <div class="equation">
+                \[ J = \begin{pmatrix} \rho & -1 \\[8pt] \frac{c^*}{\theta}f''(k^*) & 0 \end{pmatrix} \]
+            </div>
+            
+            <p><strong>Determinante:</strong></p>
+            <div class="equation">
+                \[ \det(J) = \rho \cdot 0 - (-1) \cdot \frac{c^*}{\theta}f''(k^*) = \frac{c^*}{\theta}f''(k^*) \]
+            </div>
+            <p>Como \( f''(k^*) < 0 \) e \( c^*, \theta > 0 \):</p>
+            <div class="equation">
+                \[ \det(J) < 0 \]
+            </div>
+            
+            <p><strong>Traço:</strong></p>
+            <div class="equation">
+                \[ \text{tr}(J) = \rho + 0 = \rho > 0 \]
+            </div>
+            
+            <p><strong>Autovalores:</strong> Os autovalores satisfazem \( \mu^2 - \text{tr}(J)\mu + \det(J) = 0 \).</p>
+            <p>Como \( \det(J) < 0 \), os autovalores têm sinais opostos (um positivo, um negativo).</p>
+            
+            <div class="theorem">
+                <span class="theorem-title">Conclusão:</span>
+                O steady state \( (k^*, c^*) \) é um <strong>ponto de sela</strong>. Existe uma única trajetória convergente (saddle path).
+            </div>
+            
+            <h4>(e) Diagrama de fases</h4>
+            
+            <p><strong>Curva \( \dot{k} = 0 \):</strong></p>
+            <div class="equation">
+                \[ c = f(k) - (n+g+\delta)k \]
+            </div>
+            <p>Esta é uma parábola invertida (formato ∩), com máximo em \( k_{gold} \) onde \( f'(k_{gold}) = n+g+\delta \).</p>
+            
+            <p><strong>Curva \( \dot{c} = 0 \):</strong></p>
+            <div class="equation">
+                \[ f'(k) = n + g + \delta + \rho \]
+            </div>
+            <p>Esta é uma linha vertical em \( k = k^* \).</p>
+            
+            <p><strong>Dinâmica fora das curvas:</strong></p>
+            <ul>
+                <li>Acima de \( \dot{k} = 0 \): \( c \) muito alto → \( \dot{k} < 0 \) (setas para a esquerda)</li>
+                <li>Abaixo de \( \dot{k} = 0 \): \( c \) baixo → \( \dot{k} > 0 \) (setas para a direita)</li>
+                <li>À direita de \( \dot{c} = 0 \): \( k > k^* \) → \( f'(k) < f'(k^*) \) → \( \dot{c} < 0 \) (setas para baixo)</li>
+                <li>À esquerda de \( \dot{c} = 0 \): \( k < k^* \) → \( f'(k) > f'(k^*) \) → \( \dot{c} > 0 \) (setas para cima)</li>
+            </ul>
+            
+            <h4>(f) Comparação \( k^* \) vs \( k_{gold} \)</h4>
+            
+            <p>Da condição de steady state do RCK:</p>
+            <div class="equation">
+                \[ f'(k^*) = n + g + \delta + \rho \]
+            </div>
+            
+            <p>Da Regra de Ouro:</p>
+            <div class="equation">
+                \[ f'(k_{gold}) = n + g + \delta \]
+            </div>
+            
+            <p>Como \( \rho > 0 \):</p>
+            <div class="equation">
+                \[ f'(k^*) = n + g + \delta + \rho > n + g + \delta = f'(k_{gold}) \]
+            </div>
+            
+            <p>Como \( f''(k) < 0 \) (função de produção côncava), \( f' \) é decrescente. Logo:</p>
+            
+            <div class="equation-box">
+                \[ \boxed{k^* < k_{gold}} \]
+            </div>
+            
+            <div class="interpretation">
+                <span class="interpretation-title">Interpretação:</span>
+                Agentes impacientes (\( \rho > 0 \)) preferem consumir hoje a poupar para o futuro. Isso resulta em menor acumulação de capital do que seria ótimo do ponto de vista do consumo de longo prazo.
+            </div>
+            
+            <h4>(g) Efeito de aumento em \( \rho \)</h4>
+            
+            <p>Um aumento em \( \rho \) (maior impaciência):</p>
+            
+            <p><strong>1. Efeito sobre \( k^* \):</strong></p>
+            <div class="equation">
+                \[ f'(k^*) = n + g + \delta + \rho \]
+            </div>
+            <p>\( \uparrow \rho \Rightarrow \uparrow f'(k^*) \Rightarrow \downarrow k^* \) (pois \( f' \) é decrescente)</p>
+            
+            <p><strong>2. Efeito sobre \( c^* \):</strong></p>
+            <p>Com menos capital, \( c^* = f(k^*) - (n+g+\delta)k^* \) também cai (se \( k^* < k_{gold} \)).</p>
+            
+            <p><strong>3. Efeito sobre a trajetória:</strong></p>
+            <ul>
+                <li>A curva \( \dot{c} = 0 \) desloca para a esquerda</li>
+                <li>O novo steady state tem menor \( k^* \) e menor \( c^* \)</li>
+                <li>Durante a transição, o consumo inicial é maior (os agentes "consomem" parte do capital existente)</li>
+                <li>A economia converge para um nível de capital e consumo mais baixos</li>
+            </ul>
+            
+            <div class="result">
+                <span class="result-title">Resumo:</span>
+                \( \uparrow \rho \) → maior impaciência → mais consumo hoje → menos poupança → menor \( k^* \) e \( c^* \) no longo prazo.
+            </div>
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- EXERCÍCIO 8 -->
+    <div class="exercise">
+        <h2>Exercício 8 — Crescimento Endógeno com Governo</h2>
+        <p><em>Tópicos: Modelo AK, congestionamento, tamanho ótimo do governo</em></p>
+        
+        <p>No modelo de congestão, suponha que o produto da firma \( i \) seja:</p>
+        <div class="equation">
+            \[ Y_i = AK_i \cdot f\left(\frac{G}{Y}\right) \]
+        </div>
+        <p>onde \( G \) são serviços públicos financiados por imposto \( \tau \) sobre a renda.</p>
+        
+        <p><strong>(a)</strong> Mostre que a taxa de crescimento de equilíbrio é:</p>
+        <div class="equation">
+            \[ \hat{y}(\tau) = \frac{1}{\theta}\left[(1-\tau)Af(\tau) - \delta - \rho\right] \]
+        </div>
+        
+        <p><strong>(b)</strong> Encontre \( \tau^* \) que maximiza \( \hat{y} \).</p>
+        
+        <p><strong>(c)</strong> Para \( f(\tau) = \tau^\alpha \), mostre que \( \tau^* = \alpha \).</p>
+        
+        <p><strong>(d)</strong> Compare a solução descentralizada com a do planejador social.</p>
+        
+        <p><strong>(e)</strong> Simulação numérica: Assuma \( f(G/Y) = (G/Y)^\alpha \) com \( A=1{,}5, \alpha=0{,}3, \delta=0{,}05, \rho=0{,}02, \theta=1 \). Calcule \( \hat{y} \) para \( G/Y \in [0{,}05; 0{,}5] \) e identifique o ótimo.</p>
+        
+        <div class="solution">
+            <h3>Solução</h3>
+            
+            <h4>(a) Taxa de crescimento de equilíbrio</h4>
+            
+            <p>No modelo com congestionamento, a função de produção da firma é:</p>
+            <div class="equation">
+                \[ Y_i = AK_i \cdot f\left(\frac{G}{Y}\right) \]
+            </div>
+            
+            <p>Agregando e usando \( G = \tau Y \):</p>
+            <div class="equation">
+                \[ Y = AK \cdot f(\tau) \]
+            </div>
+            
+            <p>Este é um modelo AK com produtividade efetiva \( \tilde{A} = Af(\tau) \).</p>
+            
+            <p><strong>Equação de Euler do consumidor:</strong></p>
+            <p>O retorno líquido do capital para o agente é \( (1-\tau)\tilde{A} - \delta = (1-\tau)Af(\tau) - \delta \).</p>
+            
+            <p>A equação de Euler com utilidade CRRA é:</p>
+            <div class="equation">
+                \[ \frac{\dot{c}}{c} = \frac{1}{\theta}[r - \rho] = \frac{1}{\theta}[(1-\tau)Af(\tau) - \delta - \rho] \]
+            </div>
+            
+            <p>No modelo AK, \( \hat{y} = \hat{k} = \frac{\dot{c}}{c} \) no BGP:</p>
+            
+            <div class="equation-box">
+                \[ \boxed{\hat{y}(\tau) = \frac{1}{\theta}\left[(1-\tau)Af(\tau) - \delta - \rho\right]} \]
+            </div>
+            
+            <h4>(b) Taxa ótima de tributação</h4>
+            
+            <p>Para maximizar \( \hat{y}(\tau) \), derivamos em relação a \( \tau \):</p>
+            <div class="equation">
+                \[ \frac{d\hat{y}}{d\tau} = \frac{A}{\theta}\left[-f(\tau) + (1-\tau)f'(\tau)\right] = 0 \]
+            </div>
+            <div class="equation">
+                \[ -f(\tau^*) + (1-\tau^*)f'(\tau^*) = 0 \]
+            </div>
+            <div class="equation">
+                \[ (1-\tau^*)f'(\tau^*) = f(\tau^*) \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{\tau^* = 1 - \frac{f(\tau^*)}{f'(\tau^*)}} \]
+            </div>
+            
+            <h4>(c) Caso especial: \( f(\tau) = \tau^\alpha \)</h4>
+            
+            <p>Para \( f(\tau) = \tau^\alpha \):</p>
+            <div class="equation">
+                \[ f'(\tau) = \alpha \tau^{\alpha-1} = \frac{\alpha f(\tau)}{\tau} \]
+            </div>
+            
+            <p>Substituindo na condição de otimalidade:</p>
+            <div class="equation">
+                \[ (1-\tau^*)f'(\tau^*) = f(\tau^*) \]
+            </div>
+            <div class="equation">
+                \[ (1-\tau^*) \cdot \frac{\alpha f(\tau^*)}{\tau^*} = f(\tau^*) \]
+            </div>
+            <div class="equation">
+                \[ (1-\tau^*) \cdot \frac{\alpha}{\tau^*} = 1 \]
+            </div>
+            <div class="equation">
+                \[ \alpha(1-\tau^*) = \tau^* \]
+            </div>
+            <div class="equation">
+                \[ \alpha - \alpha\tau^* = \tau^* \]
+            </div>
+            <div class="equation">
+                \[ \alpha = \tau^*(1 + \alpha) \]
+            </div>
+            
+            <div class="equation-box">
+                \[ \boxed{\tau^* = \frac{\alpha}{1+\alpha}} \]
+            </div>
+            
+            <p>Alternativamente, verificando diretamente:</p>
+            <div class="equation">
+                \[ \hat{y}(\tau) = \frac{1}{\theta}[(1-\tau)A\tau^\alpha - \delta - \rho] \]
+            </div>
+            <div class="equation">
+                \[ \frac{d\hat{y}}{d\tau} = \frac{A}{\theta}[-\tau^\alpha + (1-\tau)\alpha\tau^{\alpha-1}] = \frac{A\tau^{\alpha-1}}{\theta}[-\tau + \alpha(1-\tau)] = 0 \]
+            </div>
+            <div class="equation">
+                \[ -\tau + \alpha - \alpha\tau = 0 \Rightarrow \tau(1+\alpha) = \alpha \Rightarrow \tau^* = \frac{\alpha}{1+\alpha} \]
+            </div>
+            
+            <p><strong>Nota:</strong> Se a externalidade fosse completamente internalizada (planejador social), teríamos \( \tau^* = \alpha \). A diferença surge porque firmas não consideram o efeito de suas decisões sobre \( G/Y \).</p>
+            
+            <h4>(d) Comparação: descentralizado vs. planejador social</h4>
+            
+            <p><strong>Economia descentralizada:</strong></p>
+            <p>Firmas tomam \( G/Y \) como dado. O retorno privado do capital é \( (1-\tau)Af(\tau) \).</p>
+            <div class="equation">
+                \[ \hat{c}_{desc} = \frac{1}{\theta}[(1-\tau)Af(\tau) - \delta - \rho] \]
+            </div>
+            
+            <p><strong>Planejador social:</strong></p>
+            <p>O planejador internaliza que \( G = \tau Y = \tau AK f(\tau) \), ou seja, \( G \) depende de \( K \).</p>
+            <p>O retorno social do capital inclui o efeito via \( G \):</p>
+            <div class="equation">
+                \[ \frac{\partial Y}{\partial K} = Af(\tau) + AK \cdot f'(\tau) \cdot \frac{\partial(G/Y)}{\partial K} \]
+            </div>
+            
+            <p>Após manipulação (mantendo \( G/Y = \tau \) constante por construção do governo):</p>
+            <div class="equation">
+                \[ \hat{c}^{SP} = \frac{1}{\theta}\left\{[1-\tau^*]Af(\tau^*) - \delta - \rho\right\} \]
+            </div>
+            
+            <p>No ótimo social, \( \tau^* = \alpha \) (para \( f(\tau) = \tau^\alpha \)).</p>
+            
+            <p><strong>Comparação:</strong></p>
+            <ul>
+                <li>Descentralizado com \( \tau \neq \tau^* \): pode ter crescimento subótimo</li>
+                <li>Planejador escolhe \( \tau \) para maximizar bem-estar social</li>
+                <li>Se o governo financia \( G \) com impostos lump-sum (não distorcionários), o ótimo é \( \tau^* = \alpha \)</li>
+            </ul>
+            
+            <h4>(e) Simulação numérica</h4>
+            
+            <p>Parâmetros: \( A = 1{,}5 \), \( \alpha = 0{,}3 \), \( \delta = 0{,}05 \), \( \rho = 0{,}02 \), \( \theta = 1 \).</p>
+            
+            <p>A taxa de crescimento é:</p>
+            <div class="equation">
+                \[ \hat{y}(\tau) = (1-\tau) \times 1{,}5 \times \tau^{0{,}3} - 0{,}05 - 0{,}02 = 1{,}5(1-\tau)\tau^{0{,}3} - 0{,}07 \]
+            </div>
+            
+            <p><strong>Cálculos para diferentes valores de \( \tau = G/Y \):</strong></p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>\( G/Y \)</th>
+                        <th>\( \tau^{0{,}3} \)</th>
+                        <th>\( (1-\tau)\tau^{0{,}3} \)</th>
+                        <th>\( \hat{y} \) (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0,05</td>
+                        <td>0,350</td>
+                        <td>0,333</td>
+                        <td>42,9%</td>
+                    </tr>
+                    <tr>
+                        <td>0,10</td>
+                        <td>0,501</td>
+                        <td>0,451</td>
+                        <td>60,7%</td>
+                    </tr>
+                    <tr>
+                        <td>0,15</td>
+                        <td>0,595</td>
+                        <td>0,506</td>
+                        <td>68,9%</td>
+                    </tr>
+                    <tr>
+                        <td>0,20</td>
+                        <td>0,668</td>
+                        <td>0,534</td>
+                        <td>73,1%</td>
+                    </tr>
+                    <tr style="background: #fef9e7;">
+                        <td><strong>0,231</strong></td>
+                        <td>0,706</td>
+                        <td>0,543</td>
+                        <td><strong>74,4%</strong> (máx)</td>
+                    </tr>
+                    <tr>
+                        <td>0,25</td>
+                        <td>0,724</td>
+                        <td>0,543</td>
+                        <td>74,4%</td>
+                    </tr>
+                    <tr>
+                        <td>0,30</td>
+                        <td>0,786</td>
+                        <td>0,550</td>
+                        <td>75,5%</td>
+                    </tr>
+                    <tr>
+                        <td>0,35</td>
+                        <td>0,802</td>
+                        <td>0,521</td>
+                        <td>71,2%</td>
+                    </tr>
+                    <tr>
+                        <td>0,40</td>
+                        <td>0,832</td>
+                        <td>0,499</td>
+                        <td>67,9%</td>
+                    </tr>
+                    <tr>
+                        <td>0,50</td>
+                        <td>0,812</td>
+                        <td>0,406</td>
+                        <td>53,9%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><strong>Valor ótimo teórico:</strong></p>
+            <div class="equation">
+                \[ \tau^* = \frac{\alpha}{1+\alpha} = \frac{0{,}3}{1{,}3} \approx 0{,}231 = 23{,}1\% \]
+            </div>
+            
+            <p><strong>Taxa de crescimento máxima:</strong></p>
+            <div class="equation">
+                \[ \hat{y}^* = 1{,}5 \times (1-0{,}231) \times (0{,}231)^{0{,}3} - 0{,}07 \]
+            </div>
+            <div class="equation">
+                \[ = 1{,}5 \times 0{,}769 \times 0{,}706 - 0{,}07 \approx 0{,}744 = 74{,}4\% \]
+            </div>
+            
+            <div class="result">
+                <span class="result-title">Resultado:</span>
+                O tamanho ótimo do governo é \( G/Y \approx 23\% \), que maximiza a taxa de crescimento em aproximadamente 74% ao ano (valor alto devido aos parâmetros escolhidos).
+            </div>
+            
+            <p><strong>Interpretação:</strong></p>
+            <ul>
+                <li>Para \( \tau < \tau^* \): infraestrutura insuficiente, vale aumentar \( G \)</li>
+                <li>Para \( \tau > \tau^* \): tributação excessiva, reduz incentivos e crescimento</li>
+                <li>O ótimo equilibra o benefício marginal da infraestrutura com o custo marginal da tributação</li>
+            </ul>
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- EXERCÍCIO 9 -->
+    <div class="exercise">
+        <h2>Exercício 9 — Verdadeiro ou Falso</h2>
+        <p><em>Tópicos: Revisão conceitual de todos os modelos</em></p>
+        
+        <p>Indique se cada afirmação é <strong>V</strong> (verdadeira) ou <strong>F</strong> (falsa). Justifique.</p>
+        
+        <p><strong>(a)</strong> No modelo de Solow-Phelps, a taxa de poupança da Regra de Ouro maximiza o estoque de capital no steady state.</p>
+        
+        <p><strong>(b)</strong> No steady state, o consumo per capita cresce à taxa \( g \).</p>
+        
+        <p><strong>(c)</strong> Um aumento permanente em \( s \) eleva a taxa de crescimento de longo prazo da renda per capita.</p>
+        
+        <p><strong>(d)</strong> Para Cobb-Douglas, a condição de ouro implica \( s = \alpha \).</p>
+        
+        <p><strong>(e)</strong> As condições de Inada garantem unicidade de steady state positivo.</p>
+        
+        <p><strong>(f)</strong> Se \( s < s_{gold} \), então o consumo de steady state é maior que o nível de ouro.</p>
+        
+        <p><strong>(g)</strong> Em Cobb-Douglas, se dois países têm mesmos \( s \) e \( (n+g+\delta) \), o país inicialmente mais pobre terá taxa de crescimento instantânea de \( y \) maior.</p>
+        
+        <p><strong>(h)</strong> No BGP do modelo de Solow com Cobb-Douglas, o salário real \( w \) cresce à taxa \( g \), enquanto a taxa de juros real \( r \) permanece constante.</p>
+        
+        <p><strong>(i)</strong> No modelo RCK, se \( \rho > 0 \), então \( k^* < k_{gold} \).</p>
+        
+        <p><strong>(j)</strong> No modelo AK, a taxa de poupança \( s \) afeta a taxa de crescimento de longo prazo.</p>
+        
+        <div class="solution">
+            <h3>Solução</h3>
+            
+            <h4>(a) "A taxa de poupança da Regra de Ouro maximiza o estoque de capital no steady state."</h4>
+            
+            <p><strong>FALSO.</strong></p>
+            
+            <p>A Regra de Ouro maximiza o <em>consumo</em> de steady state, não o capital.</p>
+            
+            <p><strong>Justificativa:</strong> Do problema de maximização:</p>
+            <div class="equation">
+                \[ \max_k c = f(k) - (n+g+\delta)k \]
+            </div>
+            <p>A CPO é \( f'(k_{gold}) = n+g+\delta \), que determina o \( k \) que maximiza \( c \), não o maior \( k \) possível.</p>
+            <p>De fato, \( s = 1 \) (poupar tudo) maximizaria \( k^* \), mas resultaria em \( c^* = 0 \).</p>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h4>(b) "No steady state, o consumo per capita cresce à taxa \( g \)."</h4>
+            
+            <p><strong>VERDADEIRO.</strong></p>
+            
+            <p><strong>Justificativa:</strong> No steady state (com progresso técnico Harrod-neutro):</p>
+            <ul>
+                <li>\( c = C/(AL) \) é constante</li>
+                <li>Logo, \( C/L = A \cdot c \), onde \( c \) é constante</li>
+                <li>Como \( \hat{A} = g \), temos \( \widehat{C/L} = g \)</li>
+            </ul>
+            <p>O consumo por trabalhador cresce à taxa do progresso técnico.</p>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h4>(c) "Um aumento permanente em \( s \) eleva a taxa de crescimento de longo prazo da renda per capita."</h4>
+            
+            <p><strong>FALSO.</strong></p>
+            
+            <p><strong>Justificativa:</strong> No modelo de Solow com progresso técnico exógeno:</p>
+            <ul>
+                <li>A taxa de crescimento de longo prazo de \( Y/L \) é sempre \( g \), independente de \( s \)</li>
+                <li>\( s \) afeta apenas o <em>nível</em> de \( k^* \) e \( y^* \), não a <em>taxa</em> de crescimento</li>
+                <li>Durante a transição, um aumento em \( s \) eleva temporariamente a taxa de crescimento</li>
+            </ul>
+            <p>Distinção: \( s \) afeta níveis (efeito de nível), não taxas de crescimento de longo prazo.</p>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h4>(d) "Para Cobb-Douglas, a condição de ouro implica \( s = \alpha \)."</h4>
+            
+            <p><strong>VERDADEIRO.</strong></p>
+            
+            <p><strong>Justificativa:</strong> Para \( f(k) = k^\alpha \):</p>
+            <ul>
+                <li>Condição de ouro: \( f'(k_{gold}) = \alpha k_{gold}^{\alpha-1} = n+g+\delta \)</li>
+                <li>Condição de SS: \( sf(k^*) = (n+g+\delta)k^* \Rightarrow s = \frac{(n+g+\delta)k^*}{f(k^*)} = (n+g+\delta)k^{*1-\alpha} \)</li>
+                <li>No ponto de ouro: \( s_{gold} = (n+g+\delta)k_{gold}^{1-\alpha} = \alpha k_{gold}^{\alpha-1} \cdot k_{gold}^{1-\alpha} = \alpha \)</li>
+            </ul>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h4>(e) "As condições de Inada garantem unicidade de steady state positivo."</h4>
+            
+            <p><strong>VERDADEIRO.</strong></p>
+            
+            <p><strong>Justificativa:</strong> As condições de Inada são:</p>
+            <ul>
+                <li>\( \lim_{k \to 0} f'(k) = \infty \) e \( \lim_{k \to \infty} f'(k) = 0 \)</li>
+            </ul>
+            <p>Isso implica:</p>
+            <ul>
+                <li>\( \lim_{k \to 0} \frac{f(k)}{k} = \infty \) (pela regra de L'Hôpital)</li>
+                <li>\( \lim_{k \to \infty} \frac{f(k)}{k} = 0 \)</li>
+            </ul>
+            <p>Como \( f(k)/k \) é contínua e estritamente decrescente (por \( f'' < 0 \)), e vai de \( \infty \) a \( 0 \), existe um único \( k^* \) tal que:</p>
+            <div class="equation">
+                \[ \frac{f(k^*)}{k^*} = \frac{n+g+\delta}{s} \]
+            </div>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h4>(f) "Se \( s < s_{gold} \), então o consumo de steady state é maior que o nível de ouro."</h4>
+            
+            <p><strong>FALSO.</strong></p>
+            
+            <p><strong>Justificativa:</strong> Se \( s < s_{gold} = \alpha \):</p>
+            <ul>
+                <li>\( k^* < k_{gold} \) (menor taxa de poupança → menos capital)</li>
+                <li>Como \( k^* < k_{gold} \), e \( c(k) \) atinge máximo em \( k_{gold} \):</li>
+                <li>\( c^*(s) < c^*(s_{gold}) = c_{gold} \)</li>
+            </ul>
+            <p>O consumo de steady state é <em>menor</em> que o nível de ouro quando \( s < s_{gold} \).</p>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h4>(g) "Se dois países têm mesmos \( s \) e \( (n+g+\delta) \), o país inicialmente mais pobre terá taxa de crescimento instantânea de \( y \) maior."</h4>
+            
+            <p><strong>VERDADEIRO.</strong></p>
+            
+            <p><strong>Justificativa:</strong> Este é o conceito de β-convergência condicional.</p>
+            <p>A taxa de crescimento de \( k \) é:</p>
+            <div class="equation">
+                \[ \hat{k} = \frac{\dot{k}}{k} = s\frac{f(k)}{k} - (n+g+\delta) \]
+            </div>
+            <p>Como \( f(k)/k \) é decrescente em \( k \) (retornos decrescentes), para \( k_1 < k_2 \):</p>
+            <div class="equation">
+                \[ \frac{f(k_1)}{k_1} > \frac{f(k_2)}{k_2} \Rightarrow \hat{k}_1 > \hat{k}_2 \]
+            </div>
+            <p>O país mais pobre (menor \( k \)) cresce mais rápido.</p>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h4>(h) "No BGP, o salário real \( w \) cresce à taxa \( g \), enquanto \( r \) permanece constante."</h4>
+            
+            <p><strong>VERDADEIRO.</strong></p>
+            
+            <p><strong>Justificativa:</strong> Para \( Y = F(K, AL) \) com CRS:</p>
+            <p><strong>Salário real:</strong></p>
+            <div class="equation">
+                \[ w = \frac{\partial Y}{\partial L} = A \cdot f(k) - A \cdot k \cdot f'(k) = A \cdot [f(k) - kf'(k)] \]
+            </div>
+            <p>No BGP, \( k \) é constante, então \( [f(k) - kf'(k)] \) é constante. Logo:</p>
+            <div class="equation">
+                \[ \hat{w} = \hat{A} = g \]
+            </div>
+            
+            <p><strong>Taxa de retorno do capital:</strong></p>
+            <div class="equation">
+                \[ r = \frac{\partial Y}{\partial K} - \delta = f'(k) - \delta \]
+            </div>
+            <p>No BGP, \( k \) é constante, então \( r \) é constante.</p>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h4>(i) "No modelo RCK, se \( \rho > 0 \), então \( k^* < k_{gold} \)."</h4>
+            
+            <p><strong>VERDADEIRO.</strong></p>
+            
+            <p><strong>Justificativa:</strong></p>
+            <ul>
+                <li>No RCK: \( f'(k^*) = n + g + \delta + \rho \)</li>
+                <li>Na Regra de Ouro: \( f'(k_{gold}) = n + g + \delta \)</li>
+                <li>Como \( \rho > 0 \): \( f'(k^*) > f'(k_{gold}) \)</li>
+                <li>Como \( f'' < 0 \): \( k^* < k_{gold} \)</li>
+            </ul>
+            <p>Agentes impacientes acumulam menos capital que o ótimo da Regra de Ouro.</p>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h4>(j) "No modelo AK, a taxa de poupança \( s \) afeta a taxa de crescimento de longo prazo."</h4>
+            
+            <p><strong>VERDADEIRO.</strong></p>
+            
+            <p><strong>Justificativa:</strong> No modelo AK (\( Y = AK \)):</p>
+            <div class="equation">
+                \[ \dot{K} = sY - \delta K = sAK - \delta K = (sA - \delta)K \]
+            </div>
+            <div class="equation">
+                \[ \hat{K} = \hat{Y} = sA - \delta \]
+            </div>
+            <p>A taxa de crescimento de longo prazo depende diretamente de \( s \)!</p>
+            <p>Esta é a diferença entre crescimento endógeno (AK) e o modelo de Solow neoclássico.</p>
+            
+            <hr style="margin: 20px 0; border: none; border-top: 1px dashed #ccc;">
+            
+            <h3>Resumo</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Resposta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>(a)</td><td>FALSO</td></tr>
+                    <tr><td>(b)</td><td>VERDADEIRO</td></tr>
+                    <tr><td>(c)</td><td>FALSO</td></tr>
+                    <tr><td>(d)</td><td>VERDADEIRO</td></tr>
+                    <tr><td>(e)</td><td>VERDADEIRO</td></tr>
+                    <tr><td>(f)</td><td>FALSO</td></tr>
+                    <tr><td>(g)</td><td>VERDADEIRO</td></tr>
+                    <tr><td>(h)</td><td>VERDADEIRO</td></tr>
+                    <tr><td>(i)</td><td>VERDADEIRO</td></tr>
+                    <tr><td>(j)</td><td>VERDADEIRO</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <hr style="margin: 30px 0; border: 1px solid var(--border-color);">
+    
+    <!-- MAPA DE TÓPICOS -->
+    <div class="formula-summary">
+        <h3>Mapa de Cobertura dos Exercícios</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Exercício</th>
+                    <th>Tópicos Cobertos</th>
+                    <th>Capítulo da Apostila</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Solow básico, steady state, taxas de crescimento</td>
+                    <td>1, 2</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Solow completo, Regra de Ouro, BGP</td>
+                    <td>2, 3</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Progresso técnico capital-augmenting</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Convergência, meia-vida, modelo AK</td>
+                    <td>4, 6</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Solow com governo, estática comparativa</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Regra de Ouro, ineficiência dinâmica</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Modelo RCK completo</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Crescimento endógeno, governo ótimo</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Revisão conceitual geral</td>
+                    <td>Todos</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</section>
+
+<!-- RODAPÉ -->
+<div class="footer">
+    <p>Apostila de Macroeconomia II — Modelos de Crescimento Econômico</p>
+    <p><strong>Lucas Rafael de Andrade</strong></p>
+</div>
+
+</body>
+</html>
